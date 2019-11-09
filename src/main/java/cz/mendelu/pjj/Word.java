@@ -1,4 +1,4 @@
-package src;
+package cz.mendelu.pjj;
 
 public class Word {
     private String value;

@@ -1,4 +1,4 @@
-package src;
+package cz.mendelu.pjj;
 
 public enum Level {
     EASY,
