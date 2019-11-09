@@ -1,11 +1,10 @@
 package cz.mendelu.pjj;
 
+import cz.mendelu.pjj.interfaces.Agent;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class KeyMapTest{
-    static class TestAgent implements Agent{
+    static class TestAgent implements Agent {
 
         public TestAgent() {
         }
@@ -13,6 +12,11 @@ class KeyMapTest{
         @Override
         public void action() {
 
+        }
+
+        @Override
+        public String getInformation() {
+            return null;
         }
     }
 

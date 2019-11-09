@@ -1,5 +1,7 @@
 package cz.mendelu.pjj;
 
+import cz.mendelu.pjj.interfaces.GameState;
+
 public class MenuGameState implements GameState {
 
     MenuGameState() {

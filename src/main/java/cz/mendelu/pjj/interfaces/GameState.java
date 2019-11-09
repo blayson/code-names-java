@@ -1,6 +1,6 @@
-package cz.mendelu.pjj;
+package cz.mendelu.pjj.interfaces;
 
-interface GameState {
+public interface GameState {
     void nextState();
 
     void prevState();
