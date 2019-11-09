@@ -5,4 +5,7 @@ public class CodeNames {
    private Player player;
    private ClueLog[] lod;
 
+   public Level getCurrentLevel() {
+      return level;
+   }
 }
