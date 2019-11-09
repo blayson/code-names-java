@@ -6,6 +6,7 @@ public class CodeNames {
    private ClueLog[] lod;
 
    public Level getCurrentLevel() {
-      return level;
+      throw new UnsupportedOperationException("Does not implemented yet");
+
    }
 }
