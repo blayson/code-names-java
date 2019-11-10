@@ -25,6 +25,10 @@ public class CodeNamesGame implements Game {
       throw new UnsupportedOperationException("Does not implemented yet");
    }
 
+   /**
+    * Tato metoda zjisti pokud v ClueLogu jsou jeste slova, kteri je mozne odhadnout
+    * @return pocet slov , kterych je nutne jeste odhadnout
+    */
    public int checkClueLog() {
       throw new UnsupportedOperationException("Does not implemented yet");
    }
@@ -33,6 +37,10 @@ public class CodeNamesGame implements Game {
       this.log = log;
    }
 
+   /**
+    * Tato metoda snizuje hodnotu promenne <code>timePoolLeft</code>
+    * a zmeni  tah
+    */
    public void nextTurn() {
       throw new UnsupportedOperationException("Does not implemented yet");
    }
