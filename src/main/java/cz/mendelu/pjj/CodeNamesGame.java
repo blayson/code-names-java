@@ -28,4 +28,8 @@ public class CodeNamesGame implements Game {
    public int checkClueLog() {
       throw new UnsupportedOperationException("Does not implemented yet");
    }
+
+   public void setLog(ClueLog[] log) {
+      this.log = log;
+   }
 }

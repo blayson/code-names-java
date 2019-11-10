@@ -13,10 +13,6 @@ class FriendlyAgentTest {
     private static FriendlyAgent friendlyAgent;
     private static TestPlayer player;
 
-    public static class TestKeyMap {
-
-    }
-
     public static class TestWord {
         private String value;
         private boolean check;
@@ -27,7 +23,7 @@ class FriendlyAgentTest {
 
         }
 
-        public Boolean isChecked(){
+        Boolean isChecked(){
             return check;
         }
 
@@ -38,13 +34,13 @@ class FriendlyAgentTest {
 
     public static class TestPlayer implements PlayerInterface {
         public KeyMap keyMap;
-        TestWord words[];
+        TestWord[] words;
 
-        public TestPlayer() {
+        TestPlayer() {
             this.words = new TestWord[25];
 
         }
-        public void setWords(boolean check) {
+        void setWords(boolean check) {
             TestWord word = new TestWord("Apple", check);
             Arrays.fill(this.words, word);
         }
@@ -61,10 +57,10 @@ class FriendlyAgentTest {
     }
 
     public static class TestCodeNamesGame implements Game {
-        public Turn currentTurn;
+        Turn currentTurn;
         protected ClueLog[] log;
 
-        public TestCodeNamesGame(Turn currentTurn) {
+        TestCodeNamesGame(Turn currentTurn) {
             this.currentTurn = currentTurn;
         }
 
@@ -74,7 +70,7 @@ class FriendlyAgentTest {
     }
 
     public static class TestCodeNamesGame2 extends TestCodeNamesGame implements Game {
-        public TestCodeNamesGame2(Turn currentTurn) {
+        TestCodeNamesGame2(Turn currentTurn) {
             super(currentTurn);
         }
 
