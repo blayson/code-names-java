@@ -2,12 +2,7 @@ package cz.mendelu.pjj;
 
 import cz.mendelu.pjj.interfaces.Agent;
 
-public class InnocentBystander implements Agent {
-    public int count;
-    public InnocentBystander (int count) {
-        this.count = count;
-    }
-
+public class FriendlyAgent implements Agent {
     @Override
     public void action() {
         throw new UnsupportedOperationException("Does not implemented yet");
@@ -16,6 +11,6 @@ public class InnocentBystander implements Agent {
 
     @Override
     public String getInformation() {
-        return count + " Innocent bystander";
+        return null;
     }
 }

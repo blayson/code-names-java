@@ -1,6 +1,6 @@
 package cz.mendelu.pjj;
 
-public class CodeNames {
+public class CodeNamesGame {
    private Level level;
    private Player player;
    private ClueLog[] lod;

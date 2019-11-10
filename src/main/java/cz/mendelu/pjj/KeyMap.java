@@ -17,11 +17,11 @@ public class KeyMap {
         throw new UnsupportedOperationException("Does not implemented yet");
     }
 
-    public void createAgents() {
+    public void generateAgents() {
         int count = 0;
         for (Agent agent : this.agents) {
             count++;
-            Agent newAgent = new InnocentBystander(count);
+            Agent newAgent = new InnocentAgent(count);
             System.out.println(newAgent.getInformation() + " Agent");
         }
     }
