@@ -1,6 +1,5 @@
 package cz.mendelu.pjj;
 
-import cz.mendelu.pjj.interfaces.Agent;
 import cz.mendelu.pjj.interfaces.Game;
 import cz.mendelu.pjj.interfaces.PlayerInterface;
 import org.junit.jupiter.api.BeforeAll;
@@ -11,6 +10,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FriendlyAgentTest {
     private static TestCodeNamesGame game;
+    private static FriendlyAgent friendlyAgent;
+    private static TestPlayer player;
 
     public static class TestKeyMap {
 
@@ -61,7 +62,7 @@ class FriendlyAgentTest {
 
     public static class TestCodeNamesGame implements Game {
         public Turn currentTurn;
-        ClueLog[] log;
+        protected ClueLog[] log;
 
         public TestCodeNamesGame(Turn currentTurn) {
             this.currentTurn = currentTurn;
@@ -72,23 +73,45 @@ class FriendlyAgentTest {
         }
     }
 
+    public static class TestCodeNamesGame2 extends TestCodeNamesGame implements Game {
+        public TestCodeNamesGame2(Turn currentTurn) {
+            super(currentTurn);
+        }
+
+        public int checkClueLog() {
+            return 1;
+        }
+    }
+
     @BeforeAll
     static void setUp(){
         game = new TestCodeNamesGame(Turn.PLAYER);
+        friendlyAgent = new FriendlyAgent();
+        player = new TestPlayer();
+        player.setWords(false);
     }
 
     @Test
-    void action() {
-        Agent friendlyAgent = new FriendlyAgent();
-        TestPlayer player = new TestPlayer();
-        player.setWords(false);
-
+    void actionChangeTurn() {
         if(game.currentTurn == Turn.PLAYER) {
             friendlyAgent.action(player, game);
             assertSame(game.currentTurn, Turn.OPPONENT);
         } else {
             friendlyAgent.action(player, game);
             assertSame(game.currentTurn, Turn.PLAYER);
+        }
+
+    }
+
+    @Test
+    void actionNotToChangeTurn() {
+        game = new TestCodeNamesGame2(Turn.PLAYER);
+        if(game.currentTurn == Turn.PLAYER) {
+            friendlyAgent.action(player, game);
+            assertSame(game.currentTurn, Turn.PLAYER);
+        } else {
+            friendlyAgent.action(player, game);
+            assertSame(game.currentTurn, Turn.OPPONENT);
         }
 
     }

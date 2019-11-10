@@ -6,8 +6,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CodeNamesGameTest {
 
+
     @Test
-    void getCurrentLevel() {
+    void checkClueLog() {
+        ClueLog log = new ClueLog();
 
     }
 }
