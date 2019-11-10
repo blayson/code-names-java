@@ -17,6 +17,10 @@ public class KeyMap {
         throw new UnsupportedOperationException("Does not implemented yet");
     }
 
+    /**
+     * Tato metoda provadi generovani 25 agentu,
+     * z nich 9 friendlyAgent, 3 enemy a 13 bystander
+     */
     public void generateAgents() {
         int count = 0;
         for (Agent agent : this.agents) {
@@ -26,7 +30,12 @@ public class KeyMap {
         }
     }
 
-    Agent revealAgent(byte position) {
+    /**
+     * Ze vsech agentu vybete toho , ktery se nachazi na zadane pozice
+     * @param position - poradi agentu
+     * @return vrati agenta, ktery se nachazi na zadane pozice
+     */
+    public Agent revealAgent(byte position) {
         throw new UnsupportedOperationException("Does not implemented yet");
     }
 

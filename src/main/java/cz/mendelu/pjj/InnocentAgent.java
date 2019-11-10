@@ -8,6 +8,9 @@ public class InnocentAgent implements Agent {
         this.count = count;
     }
 
+    /**
+     * V InnocentAgent tato metoda implementuje ukonceni tahu
+     */
     @Override
     public void action() {
         throw new UnsupportedOperationException("Does not implemented yet");
