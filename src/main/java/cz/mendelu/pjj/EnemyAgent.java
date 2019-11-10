@@ -7,7 +7,7 @@ public class EnemyAgent implements Agent {
      * V EnemyAgent tato metoda implementuje ukonceni hry
      */
     @Override
-    public void action() {
+    public void action(Player player) {
         throw new UnsupportedOperationException("Does not implemented yet");
 
     }

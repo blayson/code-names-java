@@ -12,7 +12,7 @@ public class InnocentAgent implements Agent {
      * V InnocentAgent tato metoda implementuje ukonceni tahu
      */
     @Override
-    public void action() {
+    public void action(Player player) {
         throw new UnsupportedOperationException("Does not implemented yet");
 
     }

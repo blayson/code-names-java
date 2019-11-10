@@ -13,7 +13,7 @@ public class FriendlyAgent implements Agent {
      * kdyz ne, ukonci tah
      */
     @Override
-    public void action() {
+    public void action(Player player) {
         throw new UnsupportedOperationException("Does not implemented yet");
 
     }
