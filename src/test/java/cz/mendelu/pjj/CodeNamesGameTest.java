@@ -10,7 +10,7 @@ class CodeNamesGameTest {
 
     @BeforeAll
     static void setUp() {
-        game = new CodeNamesGame(Level.EASY, new Player("Andrew"), null, Turn.PLAYER);
+        game = new CodeNamesGame(Level.HARD, new Player("Andrew"), null, Turn.PLAYER);
     }
 
     @Test
@@ -40,6 +40,17 @@ class CodeNamesGameTest {
     @Test
     void nextTurn() {
         game.nextTurn();
+
         assertEquals(game.currentTurn, Turn.OPPONENT);
+    }
+
+    @Test
+    void nextTurnChangeTimePool() {
+        int initialTimePool = game.getTimePoolLeft();
+        game.nextTurn();
+        int timePoolLeft = game.getTimePoolLeft();
+
+        assertTrue(initialTimePool > timePoolLeft);
+        assertEquals(timePoolLeft, initialTimePool - 1);
     }
 }

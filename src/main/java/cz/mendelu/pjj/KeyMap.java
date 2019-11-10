@@ -16,6 +16,7 @@ public class KeyMap {
 
     /**
      * Ze vsech agentu vybete toho , ktery se nachazi na zadane pozice
+     *
      * @param position - poradi agentu
      * @return vrati agenta, ktery se nachazi na zadane pozice
      */

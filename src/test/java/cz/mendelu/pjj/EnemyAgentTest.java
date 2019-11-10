@@ -10,8 +10,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class EnemyAgentTest {
     private static Game game;
 
-    public static class TestPlayer implements PlayerInterface  {
+    public static class TestPlayer implements PlayerInterface {
         public String status;
+
         @Override
         public boolean checkWord(byte position) {
             return false;
@@ -22,6 +23,7 @@ class EnemyAgentTest {
             this.status = "YOU LOSE!";
         }
     }
+
     @Test
     void action() {
         Agent enemyAgent = new EnemyAgent();

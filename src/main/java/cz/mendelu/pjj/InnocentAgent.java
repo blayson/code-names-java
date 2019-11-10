@@ -19,7 +19,6 @@ public class InnocentAgent implements Agent {
 
     }
 
-
     @Override
     public String getInformation() {
         return count + " Innocent bystander";

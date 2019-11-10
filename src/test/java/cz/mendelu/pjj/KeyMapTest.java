@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class KeyMapTest{
+class KeyMapTest {
     private static Agent[] agents;
 
     @BeforeAll
@@ -33,6 +33,7 @@ class KeyMapTest{
                 count++;
             }
         }
+
         assertEquals(9, count);
     }
 
@@ -44,6 +45,7 @@ class KeyMapTest{
                 count++;
             }
         }
+
         assertEquals(3, count);
     }
 
@@ -55,6 +57,7 @@ class KeyMapTest{
                 count++;
             }
         }
+
         assertEquals(13, count);
     }
 }

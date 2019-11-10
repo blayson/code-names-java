@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class FriendlyAgentTest {
@@ -23,7 +24,7 @@ class FriendlyAgentTest {
 
         }
 
-        Boolean isChecked(){
+        Boolean isChecked() {
             return check;
         }
 
@@ -40,6 +41,7 @@ class FriendlyAgentTest {
             this.words = new TestWord[25];
 
         }
+
         void setWords(boolean check) {
             TestWord word = new TestWord("Apple", check);
             Arrays.fill(this.words, word);
@@ -80,7 +82,7 @@ class FriendlyAgentTest {
     }
 
     @BeforeAll
-    static void setUp(){
+    static void setUp() {
         game = new TestCodeNamesGame(Turn.PLAYER);
         friendlyAgent = new FriendlyAgent();
         player = new TestPlayer();
@@ -88,8 +90,8 @@ class FriendlyAgentTest {
     }
 
     @Test
-    void actionChangeTurn() {
-        if(game.currentTurn == Turn.PLAYER) {
+    void actionToChangeTurn() {
+        if (game.currentTurn == Turn.PLAYER) {
             friendlyAgent.action(player, game);
             assertSame(game.currentTurn, Turn.OPPONENT);
         } else {
@@ -102,7 +104,7 @@ class FriendlyAgentTest {
     @Test
     void actionNotToChangeTurn() {
         game = new TestCodeNamesGame2(Turn.PLAYER);
-        if(game.currentTurn == Turn.PLAYER) {
+        if (game.currentTurn == Turn.PLAYER) {
             friendlyAgent.action(player, game);
             assertSame(game.currentTurn, Turn.PLAYER);
         } else {

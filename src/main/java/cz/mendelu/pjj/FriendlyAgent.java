@@ -9,6 +9,7 @@ public class FriendlyAgent implements Agent {
     public FriendlyAgent() {
 
     }
+
     /**
      * V FriendlyAgent tato metode kontroluje pokud existuji slova ktery je mozne odhadnout
      * kdyz ano, povoli jeste jednou vybrat slovo

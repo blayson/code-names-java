@@ -4,6 +4,7 @@ public class ClueLog {
     private String word;
     private int number;
     private Boolean isDone;
+    private int numbersLeft;
 
     public int getNumbersLeft() {
         return numbersLeft;
@@ -12,8 +13,6 @@ public class ClueLog {
     public void setNumbersLeft(int numbersLeft) {
         this.numbersLeft = numbersLeft;
     }
-
-    private int numbersLeft;
 
     public ClueLog(String word, int number) {
         this.word = word;

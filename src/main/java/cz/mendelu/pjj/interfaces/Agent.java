@@ -7,5 +7,6 @@ public interface Agent {
      * bude se provadet nejaka akce
      */
     public void action(PlayerInterface player, Game game);
+
     public String getInformation();
 }
