@@ -44,12 +44,12 @@ public class Player implements PlayerInterface {
 
     /**
      * Podle vracene hodnoty z metody  <code>checkWord</code> vybere dalsi postup
-     * pokud <code>true </code>, zavola metodu <code>revealAgent</code>
+     * pokud <code>true </code>, zavola metodu <code>getAgent</code>
      * pokud <code>false </code>, bude vyzadovat opakovani vyberu slova
      *
      * @param position prijme pozice a preda tento parametr metode <code>checkWord</code>
      */
-    public void allowTurn(byte position) {
+    public void allowChoice(byte position) {
         if (checkWord(position)) {
             Agent agent = this.keyMap.getAgent(position);
         }
