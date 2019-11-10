@@ -1,8 +1,9 @@
 package cz.mendelu.pjj;
 
 import cz.mendelu.pjj.interfaces.Agent;
+import cz.mendelu.pjj.interfaces.PlayerInterface;
 
-public class Player {
+public class Player implements PlayerInterface {
 
     private String name;
 
@@ -16,7 +17,6 @@ public class Player {
     }
 
     public void setName(String name) {
-
         this.name = name;
     }
 
@@ -24,10 +24,15 @@ public class Player {
      * Kontroluje pokud na dane pozice nekdo.
      * Pokud tam nikdo neni, vrati
      * @param position prijme pozice slova
-     * @return true pokud na dane position nikdo neni nebo je tam InnocentAgent
-     *          nebo return false pokud tam nekdo uz je
+     * @return <code>true</code> pokud na dane position nikdo neni nebo je tam InnocentAgent
+     *          nebo return <code>false</code> pokud tam nekdo uz je
      */
     public boolean checkWord(byte position){
+        throw new UnsupportedOperationException("Does not implemented yet");
+    }
+
+    @Override
+    public void endTurn(CodeNamesGame game) {
         throw new UnsupportedOperationException("Does not implemented yet");
     }
 
