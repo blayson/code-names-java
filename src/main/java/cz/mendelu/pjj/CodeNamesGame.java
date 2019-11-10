@@ -7,6 +7,7 @@ public class CodeNamesGame implements Game {
    private Player player;
    private ClueLog[] log;
    public Turn currentTurn;
+   private int timePool;
 
    public CodeNamesGame(Level level, Player player, ClueLog[] log, Turn currentTurn) {
       this.level = level;
@@ -21,7 +22,6 @@ public class CodeNamesGame implements Game {
    }
 
    public void endGame() {
-
       throw new UnsupportedOperationException("Does not implemented yet");
    }
 
@@ -31,5 +31,17 @@ public class CodeNamesGame implements Game {
 
    public void setLog(ClueLog[] log) {
       this.log = log;
+   }
+
+   public void nextTurn() {
+      throw new UnsupportedOperationException("Does not implemented yet");
+   }
+
+   public int getTimePool() {
+      return timePool;
+   }
+
+   public void setTimePool(int timePool) {
+      this.timePool = timePool;
    }
 }

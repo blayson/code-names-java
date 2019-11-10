@@ -19,7 +19,9 @@ class CodeNamesGameTest {
         newClueLog[0] = new ClueLog("apple", 1);
         newClueLog[1] = new ClueLog("pencil", 2);
         game.setLog(newClueLog);
+
         int result = game.checkClueLog();
+
         assertEquals(3, result);
     }
 
@@ -29,8 +31,15 @@ class CodeNamesGameTest {
         newClueLog[0] = new ClueLog("apple", 1);
         newClueLog[0].setNumbersLeft(0);
         game.setLog(newClueLog);
+
         int result = game.checkClueLog();
+
         assertEquals(0, result);
     }
 
+    @Test
+    void nextTurn() {
+        game.nextTurn();
+        assertEquals(game.currentTurn, Turn.OPPONENT);
+    }
 }
