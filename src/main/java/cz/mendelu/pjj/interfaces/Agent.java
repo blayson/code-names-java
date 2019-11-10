@@ -7,6 +7,6 @@ public interface Agent {
      * Tato metoda se vola pokud je vybran Agent a podle toho jaky typ agentu to je
      * bude se provadet nejaka akce
      */
-    public void action(Player player);
+    public void action(PlayerInterface player);
     public String getInformation();
 }

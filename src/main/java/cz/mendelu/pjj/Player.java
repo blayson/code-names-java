@@ -31,11 +31,14 @@ public class Player implements PlayerInterface {
         throw new UnsupportedOperationException("Does not implemented yet");
     }
 
-    @Override
     public void endTurn(CodeNamesGame game) {
         throw new UnsupportedOperationException("Does not implemented yet");
     }
 
+    public void endGame(CodeNamesGame game) {
+        System.out.println("YOU LOSE!");
+        game.endGame();
+    }
     /**
      * Podle vracene hodnoty z metody  <code>checkWord</code> vybere dalsi postup
      * pokud <code>true </code>, zavola metodu <code>revealAgent</code>

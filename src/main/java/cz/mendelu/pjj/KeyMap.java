@@ -30,7 +30,7 @@ public class KeyMap {
         int count = 0;
         for (Agent agent : this.agents) {
             count++;
-            Agent newAgent = new InnocentAgent(count);
+            Agent newAgent = new InnocentAgent();
             System.out.println(newAgent.getInformation() + " Agent");
         }
     }

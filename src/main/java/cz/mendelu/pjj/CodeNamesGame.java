@@ -9,4 +9,9 @@ public class CodeNamesGame {
       throw new UnsupportedOperationException("Does not implemented yet");
 
    }
+
+   public void endGame() {
+
+      throw new UnsupportedOperationException("Does not implemented yet");
+   }
 }

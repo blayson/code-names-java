@@ -4,5 +4,5 @@ import cz.mendelu.pjj.CodeNamesGame;
 
 public interface PlayerInterface {
     public boolean checkWord(byte position);
-    public void endTurn(CodeNamesGame game);
+    public void endGame(CodeNamesGame game);
 }
