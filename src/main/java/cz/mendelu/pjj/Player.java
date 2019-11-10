@@ -48,7 +48,7 @@ public class Player implements PlayerInterface {
      */
     public void allowTurn(byte position) {
         if (checkWord(position)) {
-             Agent agent = this.keyMap.revealAgent(position);
+             Agent agent = this.keyMap.getAgent(position);
         }
     }
 }

@@ -10,29 +10,8 @@ public class KeyMap {
 
 
     public KeyMap() {
+        // memory allocation for an agent array
         this.agents = new Agent[25];
-    }
-
-    /**
-     * sdfsfdsfsdfs
-     * @param position
-     * @return
-     */
-    Agent getAgent(byte position) {
-        throw new UnsupportedOperationException("Does not implemented yet");
-    }
-
-    /**
-     * Tato metoda provadi generovani 25 agentu,
-     * z nich 9 friendlyAgent, 3 enemy a 13 bystander
-     */
-    public void generateAgents() {
-        int count = 0;
-        for (Agent agent : this.agents) {
-            count++;
-            Agent newAgent = new InnocentAgent();
-            System.out.println(newAgent.getInformation() + " Agent");
-        }
     }
 
     /**
@@ -40,8 +19,24 @@ public class KeyMap {
      * @param position - poradi agentu
      * @return vrati agenta, ktery se nachazi na zadane pozice
      */
-    public Agent revealAgent(byte position) {
-        throw new UnsupportedOperationException("Does not implemented yet");
+    public Agent getAgent(int position) {
+        return agents[position];
+    }
+
+    public Agent[] getAgents() {
+        return agents;
+    }
+
+    /**
+     * Tato metoda provadi generovani 25 agentu,
+     * z nich 9 friendlyAgent, 3 enemy a 13 bystander
+     */
+    public void generateAgents() {
+        for (int i = 0; i < 25; i++) {
+            Agent newAgent = new InnocentAgent();
+            System.out.println(newAgent.getInformation() + " Agent");
+            this.agents[i] = newAgent;
+        }
     }
 
     private void setAgent(byte position, Agent agent) {

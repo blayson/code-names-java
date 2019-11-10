@@ -17,7 +17,7 @@ class EnemyAgentTest {
 
         public void endGame(CodeNamesGame game) {
             System.out.println("YOU LOSE!");
-            this.status = "EXIT";
+            this.status = "YOU LOSE!";
         }
     }
     @Test
@@ -27,7 +27,7 @@ class EnemyAgentTest {
         TestPlayer testPlayer = new TestPlayer();
         enemyAgent.action(testPlayer);
 
-        assertEquals("EXIT", testPlayer.status);
+        assertEquals("YOU LOSE!", testPlayer.status);
 
     }
 }
