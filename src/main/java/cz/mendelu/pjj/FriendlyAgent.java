@@ -1,6 +1,7 @@
 package cz.mendelu.pjj;
 
 import cz.mendelu.pjj.interfaces.Agent;
+import cz.mendelu.pjj.interfaces.Game;
 import cz.mendelu.pjj.interfaces.PlayerInterface;
 
 public class FriendlyAgent implements Agent {
@@ -14,7 +15,7 @@ public class FriendlyAgent implements Agent {
      * kdyz ne, ukonci tah
      */
     @Override
-    public void action(PlayerInterface player) {
+    public void action(PlayerInterface player, Game game) {
         throw new UnsupportedOperationException("Does not implemented yet");
 
     }

@@ -1,6 +1,8 @@
 package cz.mendelu.pjj;
 
-public class CodeNamesGame {
+import cz.mendelu.pjj.interfaces.Game;
+
+public class CodeNamesGame implements Game {
    private Level level;
    private Player player;
    private ClueLog[] log;
@@ -20,6 +22,10 @@ public class CodeNamesGame {
 
    public void endGame() {
 
+      throw new UnsupportedOperationException("Does not implemented yet");
+   }
+
+   public int checkClueLog() {
       throw new UnsupportedOperationException("Does not implemented yet");
    }
 }

@@ -1,6 +1,7 @@
 package cz.mendelu.pjj;
 
 import cz.mendelu.pjj.interfaces.Agent;
+import cz.mendelu.pjj.interfaces.Game;
 import cz.mendelu.pjj.interfaces.PlayerInterface;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -9,7 +10,7 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FriendlyAgentTest {
-    static TestCodeNamesGame game;
+    private static TestCodeNamesGame game;
 
     public static class TestKeyMap {
 
@@ -58,11 +59,16 @@ class FriendlyAgentTest {
         }
     }
 
-    public static class TestCodeNamesGame {
+    public static class TestCodeNamesGame implements Game {
         public Turn currentTurn;
+        ClueLog[] log;
 
         public TestCodeNamesGame(Turn currentTurn) {
             this.currentTurn = currentTurn;
+        }
+
+        public int checkClueLog() {
+            return 0;
         }
     }
 
@@ -74,9 +80,16 @@ class FriendlyAgentTest {
     @Test
     void action() {
         Agent friendlyAgent = new FriendlyAgent();
-        PlayerInterface player = new TestPlayer();
-        ((TestPlayer) player).setWords(false);
-        friendlyAgent.action(player);
+        TestPlayer player = new TestPlayer();
+        player.setWords(false);
+
+        if(game.currentTurn == Turn.PLAYER) {
+            friendlyAgent.action(player, game);
+            assertSame(game.currentTurn, Turn.OPPONENT);
+        } else {
+            friendlyAgent.action(player, game);
+            assertSame(game.currentTurn, Turn.PLAYER);
+        }
 
     }
 }

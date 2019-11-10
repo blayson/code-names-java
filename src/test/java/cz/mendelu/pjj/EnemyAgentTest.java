@@ -1,12 +1,14 @@
 package cz.mendelu.pjj;
 
 import cz.mendelu.pjj.interfaces.Agent;
+import cz.mendelu.pjj.interfaces.Game;
 import cz.mendelu.pjj.interfaces.PlayerInterface;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class EnemyAgentTest {
+    private static Game game;
 
     public static class TestPlayer implements PlayerInterface  {
         public String status;
@@ -25,7 +27,7 @@ class EnemyAgentTest {
         Agent enemyAgent = new EnemyAgent();
 
         TestPlayer testPlayer = new TestPlayer();
-        enemyAgent.action(testPlayer);
+        enemyAgent.action(testPlayer, game);
 
         assertEquals("YOU LOSE!", testPlayer.status);
 

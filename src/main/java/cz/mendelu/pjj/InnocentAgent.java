@@ -1,6 +1,7 @@
 package cz.mendelu.pjj;
 
 import cz.mendelu.pjj.interfaces.Agent;
+import cz.mendelu.pjj.interfaces.Game;
 import cz.mendelu.pjj.interfaces.PlayerInterface;
 
 public class InnocentAgent implements Agent {
@@ -13,7 +14,7 @@ public class InnocentAgent implements Agent {
      * V InnocentAgent tato metoda implementuje ukonceni tahu
      */
     @Override
-    public void action(PlayerInterface player) {
+    public void action(PlayerInterface player, Game game) {
         throw new UnsupportedOperationException("Does not implemented yet");
 
     }
