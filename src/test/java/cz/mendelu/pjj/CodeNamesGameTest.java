@@ -6,21 +6,16 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CodeNamesGameTest {
-    private static CodeNamesGame game;
-
-    /**
-     * Setup <code>CodeNamesGame</code> object for testing
-     */
-    @BeforeAll
-    static void setUp() {
-        game = new CodeNamesGame(Level.HARD, new Player("Andrew"), null, Turn.PLAYER);
-    }
+    //private static CodeNamesGame game;
 
     /**
      * Test checkClue() method when all cards wasn't guessed
      */
     @Test
     void checkClueLogDoesNotHasTries() {
+        // given
+        CodeNamesGame game;
+        game = new CodeNamesGame(Level.HARD, new Player("Andrew"), null, Turn.PLAYER);
         ClueLog[] newClueLog = new ClueLog[2];
         newClueLog[0] = new ClueLog("apple", 1);
         newClueLog[1] = new ClueLog("pencil", 2);
@@ -36,6 +31,9 @@ class CodeNamesGameTest {
      */
     @Test
     void checkClueLogHasTries() {
+        // given
+        CodeNamesGame game;
+        game = new CodeNamesGame(Level.HARD, new Player("Andrew"), null, Turn.PLAYER);
         ClueLog[] newClueLog = new ClueLog[1];
         newClueLog[0] = new ClueLog("apple", 1);
         newClueLog[0].setNumbersLeft(0);
@@ -51,6 +49,9 @@ class CodeNamesGameTest {
      */
     @Test
     void nextTurn() {
+        // given
+        CodeNamesGame game;
+        game = new CodeNamesGame(Level.HARD, new Player("Andrew"), null, Turn.PLAYER);
         // when
         game.nextTurn();
         // then
@@ -62,10 +63,14 @@ class CodeNamesGameTest {
      */
     @Test
     void nextTurnChangeTimePool() {
+        // given
+        CodeNamesGame game;
+        game = new CodeNamesGame(Level.HARD, new Player("Andrew"), null, Turn.PLAYER);
+        //when
         int initialTimePool = game.getTimePoolLeft();
         game.nextTurn();
         int timePoolLeft = game.getTimePoolLeft();
-
+        //then
         assertTrue(initialTimePool > timePoolLeft);
         assertEquals(timePoolLeft, initialTimePool - 1);
     }
