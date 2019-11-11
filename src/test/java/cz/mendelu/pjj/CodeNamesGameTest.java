@@ -8,11 +8,17 @@ import static org.junit.jupiter.api.Assertions.*;
 class CodeNamesGameTest {
     private static CodeNamesGame game;
 
+    /**
+     * Setup <code>CodeNamesGame</code> object for testing
+     */
     @BeforeAll
     static void setUp() {
         game = new CodeNamesGame(Level.HARD, new Player("Andrew"), null, Turn.PLAYER);
     }
 
+    /**
+     * Test checkClue() method when all cards wasn't guessed
+     */
     @Test
     void checkClueLogDoesNotHasTries() {
         ClueLog[] newClueLog = new ClueLog[2];
@@ -25,6 +31,9 @@ class CodeNamesGameTest {
         assertEquals(3, result);
     }
 
+    /**
+     * Test <code>checkClue()<code/> method when all cards was guessed
+     */
     @Test
     void checkClueLogHasTries() {
         ClueLog[] newClueLog = new ClueLog[1];
@@ -37,6 +46,9 @@ class CodeNamesGameTest {
         assertEquals(0, result);
     }
 
+    /**
+     * Test if <code>nextTurn()<code/> switch game turn
+     */
     @Test
     void nextTurn() {
         game.nextTurn();
@@ -44,6 +56,9 @@ class CodeNamesGameTest {
         assertEquals(game.currentTurn, Turn.OPPONENT);
     }
 
+    /**
+     * Test that <code>nextTurn()<code/> subtract 1 time coin from timePoolLeft
+     */
     @Test
     void nextTurnChangeTimePool() {
         int initialTimePool = game.getTimePoolLeft();

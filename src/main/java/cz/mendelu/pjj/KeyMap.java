@@ -24,6 +24,10 @@ public class KeyMap {
         return agents[position];
     }
 
+    /**
+     * Get all agents that stored in KeyMap object
+     * @return array of agents
+     */
     public Agent[] getAgents() {
         return agents;
     }

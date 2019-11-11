@@ -81,34 +81,54 @@ class FriendlyAgentTest {
         }
     }
 
+    /**
+     * Initial setup for testing
+     */
     @BeforeAll
     static void setUp() {
-        game = new TestCodeNamesGame(Turn.PLAYER);
+        // given
         friendlyAgent = new FriendlyAgent();
         player = new TestPlayer();
         player.setWords(false);
     }
 
+    /**
+     * Test <code>action()</code> method that <b>changes turn</b> if player doesn't have any possibilities to act
+     */
     @Test
     void actionToChangeTurn() {
+        // given
+        game = new TestCodeNamesGame(Turn.PLAYER);
         if (game.currentTurn == Turn.PLAYER) {
+            // when
             friendlyAgent.action(player, game);
+            // then
             assertSame(game.currentTurn, Turn.OPPONENT);
         } else {
+            // when
             friendlyAgent.action(player, game);
+            // then
             assertSame(game.currentTurn, Turn.PLAYER);
         }
 
     }
 
+    /**
+     * Test <code>action()</code> method that <b>doesn't change turn</b> if player has some possibilities to act
+     */
     @Test
     void actionNotToChangeTurn() {
+        // given
         game = new TestCodeNamesGame2(Turn.PLAYER);
         if (game.currentTurn == Turn.PLAYER) {
+            // when
             friendlyAgent.action(player, game);
+            // then
             assertSame(game.currentTurn, Turn.PLAYER);
         } else {
+            // when
             friendlyAgent.action(player, game);
+            // then
             assertSame(game.currentTurn, Turn.OPPONENT);
         }
 
