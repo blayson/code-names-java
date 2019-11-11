@@ -15,12 +15,19 @@ public class CodeNamesGame implements Game {
         this.log = log;
         this.currentTurn = currentTurn;
         switch (level) {
-            case EASY:
+            case EASY: {
                 timePoolLeft = 11;
-            case MEDIUM:
+                break;
+            }
+            case MEDIUM: {
                 timePoolLeft = 10;
-            case HARD:
+                break;
+            }
+            case HARD: {
                 timePoolLeft = 9;
+                break;
+            }
+            default: timePoolLeft = 9;
         }
     }
 
