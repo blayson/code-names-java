@@ -8,17 +8,16 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class KeyMapTest {
-    private static Agent[] agents;
-
-    @BeforeAll
-    static void setUp() {
-        KeyMap keyMap = new KeyMap();
-        keyMap.generateAgents();
-        agents = keyMap.getAgents();
-    }
 
     @Test
     void generate25Agents() {
+        //given
+        KeyMap keyMap = new KeyMap();
+        Agent[] agents;
+        // when
+        keyMap.generateAgents();
+        agents = keyMap.getAgents();
+        // then
         assertEquals(25, agents.length);
         assertNotNull(agents[0]);
         assertNotNull(agents[1]);
@@ -28,6 +27,14 @@ class KeyMapTest {
 
     @Test
     void generate9FriendlyAgents() {
+        //given
+        KeyMap keyMap = new KeyMap();
+        Agent[] agents;
+
+        // when
+        keyMap.generateAgents();
+        agents = keyMap.getAgents();
+        // then
         int count = 0;
         for (Agent agent : agents) {
             if (agent instanceof FriendlyAgent) {
@@ -39,6 +46,13 @@ class KeyMapTest {
 
     @Test
     void generate3EnemyAgents() {
+        //given
+        KeyMap keyMap = new KeyMap();
+        Agent[] agents;
+        // when
+        keyMap.generateAgents();
+        agents = keyMap.getAgents();
+        // then
         int count = 0;
         for (Agent agent : agents) {
             if (agent instanceof EnemyAgent) {
@@ -50,6 +64,13 @@ class KeyMapTest {
 
     @Test
     void generate13InnocentAgents() {
+        //given
+        KeyMap keyMap = new KeyMap();
+        Agent[] agents;
+        // when
+        keyMap.generateAgents();
+        agents = keyMap.getAgents();
+        // then
         int count = 0;
         for (Agent agent : agents) {
             if (agent instanceof InnocentAgent) {
