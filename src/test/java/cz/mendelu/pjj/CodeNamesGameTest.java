@@ -51,8 +51,9 @@ class CodeNamesGameTest {
      */
     @Test
     void nextTurn() {
+        // when
         game.nextTurn();
-
+        // then
         assertEquals(game.currentTurn, Turn.OPPONENT);
     }
 
