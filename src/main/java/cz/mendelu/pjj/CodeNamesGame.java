@@ -55,10 +55,11 @@ public class CodeNamesGame implements Game {
 
     /**
      * Tato metoda snizuje hodnotu promenne <code>timePoolLeft</code>
-     * a zmeni  tah
+     * a meni  tah
      */
     public void nextTurn() {
-        throw new UnsupportedOperationException("Does not implemented yet");
+        currentTurn = currentTurn.toNext();
+        timePoolLeft--;
     }
 
     public int getTimePoolLeft() {
