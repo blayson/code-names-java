@@ -2,8 +2,13 @@ package cz.mendelu.pjj;
 
 import cz.mendelu.pjj.interfaces.Agent;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
+
 public class KeyMap {
-    private Agent[] agents;
+    ArrayList<Agent> agentList = new ArrayList();
+  //  private Agent[] agents;
     public static final int MAX_FRIENDLY = 9;
     public static final int MAX_ENEMY = 3;
     public static final int MAX_BYSTANDER = 13; // change
@@ -11,7 +16,8 @@ public class KeyMap {
 
     public KeyMap() {
         // memory allocation for an agent array
-        this.agents = new Agent[25];
+        ArrayList<Agent> list = new ArrayList<Agent>(25);
+
     }
 
     /**
@@ -21,35 +27,85 @@ public class KeyMap {
      * @return vrati agenta, ktery se nachazi na zadane pozice
      */
     public Agent getAgent(int position) {
-        return agents[position];
+
+        return agentList.get(position);
     }
 
     /**
      * Get all agents that stored in KeyMap object
      * @return array of agents
      */
-    public Agent[] getAgents() {
-        return agents;
+    public ArrayList<Agent> getAgentList() {
+        return agentList;
     }
 
     /**
      * Tato metoda provadi generovani 25 agentu,
      * z nich 9 friendlyAgent, 3 enemy a 13 bystander
+     *
+     *
+     *
+     * @autor Chuprina
      */
+
     public void generateAgents() {
-        for (int i = 0; i < 25; i++) {
-            Agent newAgent = new InnocentAgent();
+
+            agentList = generateFriendlyAgents();
+            agentList.addAll(generateEnemyAgents());
+            agentList.addAll(generateInnocentAgents());
+            placeAgents();
+        for (int i=0; i<agentList.size();i++){
+            Agent newAgent = getAgent(i);
             System.out.println(newAgent.getInformation() + " Agent");
-            this.agents[i] = newAgent;
+
         }
+
+        /**
+         * Tato metoda rozmisti generovani 25 agentu,
+         *
+         *
+         *
+         *
+         * @autor Chuprina
+         */
+    }
+    public void placeAgents() {
+        Collections.shuffle(agentList, new Random());
+
+
+    }
+    public ArrayList<Agent> generateFriendlyAgents() {
+        ArrayList friendlyAgentList = new ArrayList();
+        for (int i = 0; i < 9; i++) {
+            Agent newAgent = new FriendlyAgent();
+            friendlyAgentList.add(i,newAgent);
+        }
+        return friendlyAgentList;
+    }
+    public ArrayList<Agent> generateEnemyAgents() {
+        ArrayList enemyAgentList = new ArrayList();
+        for (int i = 0; i < 3; i++) {
+            Agent newAgent = new EnemyAgent();
+            enemyAgentList.add(i,newAgent);
+        }
+        return enemyAgentList;
+    }
+    public ArrayList<Agent> generateInnocentAgents() {
+        ArrayList<Agent> innocentAgentList = new ArrayList();
+        for (int i = 0; i < 13; i++) {
+            Agent newAgent = new InnocentAgent();
+            innocentAgentList.add(i,newAgent);
+        }
+        return innocentAgentList;
     }
 
     private void setAgent(byte position, Agent agent) {
-        this.agents[position] = agent;
+        agentList.add(position,agent);
     }
 
-    public void setAgents(Agent[] agents) {
-        this.agents = agents;
+    public void setAgentList(ArrayList<Agent> agentList) {
+
+        this.agentList = agentList;
     }
 }
 

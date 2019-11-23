@@ -24,6 +24,9 @@ class EnemyAgentTest {
         }
     }
 
+    /**
+     * @autor But
+     */
     @Test
     void action() {
         Agent enemyAgent = new EnemyAgent();

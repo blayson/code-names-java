@@ -62,11 +62,12 @@ public class Player implements PlayerInterface {
         if (this == o) return true;
         if (!(o instanceof Player)) return false;
         Player player = (Player) o;
-        return name.equals(player.name);
+        return name.equals(player.name) &&
+                keyMap.equals(player.keyMap);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(name, keyMap);
     }
 }

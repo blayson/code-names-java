@@ -115,6 +115,8 @@ class FriendlyAgentTest {
 
     /**
      * Test <code>action()</code> method that <b>doesn't change turn</b> if player has some possibilities to act
+     *
+     *
      */
     @Test
     void actionNotToChangeTurn() {

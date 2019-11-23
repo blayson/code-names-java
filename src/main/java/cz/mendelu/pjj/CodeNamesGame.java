@@ -44,6 +44,8 @@ public class CodeNamesGame implements Game {
      * Tato metoda zjisti pokud v ClueLogu jsou jeste slova, kteri je mozne odhadnout
      *
      * @return pocet slov , kterych je nutne jeste odhadnout
+     *
+     * @autor But
      */
     public int checkClueLog() {
         throw new UnsupportedOperationException("Does not implemented yet");
@@ -56,6 +58,9 @@ public class CodeNamesGame implements Game {
     /**
      * Tato metoda snizuje hodnotu promenne <code>timePoolLeft</code>
      * a meni  tah
+     *
+     *
+     * @autor Chuprina
      */
     public void nextTurn() {
         currentTurn = currentTurn.toNext();

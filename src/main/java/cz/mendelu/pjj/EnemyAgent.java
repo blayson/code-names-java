@@ -5,12 +5,16 @@ import cz.mendelu.pjj.interfaces.Game;
 import cz.mendelu.pjj.interfaces.PlayerInterface;
 
 public class EnemyAgent implements Agent {
+    int count;
     public EnemyAgent() {
 
     }
 
     /**
      * V EnemyAgent tato metoda implementuje ukonceni hry
+     *
+     *
+     * @autor But
      */
     @Override
     public void action(PlayerInterface player, Game game) {
@@ -20,6 +24,6 @@ public class EnemyAgent implements Agent {
 
     @Override
     public String getInformation() {
-        return null;
+        return count + " Enemy bystander";
     }
 }

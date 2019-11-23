@@ -5,7 +5,7 @@ import cz.mendelu.pjj.interfaces.Game;
 import cz.mendelu.pjj.interfaces.PlayerInterface;
 
 public class FriendlyAgent implements Agent {
-
+int count;
     public FriendlyAgent() {
 
     }
@@ -23,6 +23,6 @@ public class FriendlyAgent implements Agent {
 
     @Override
     public String getInformation() {
-        return null;
+        return count + " Friendly bystander";
     }
 }
