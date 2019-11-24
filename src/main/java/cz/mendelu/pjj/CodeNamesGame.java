@@ -38,7 +38,7 @@ public class CodeNamesGame implements Game {
     }
 
     public Level getCurrentLevel() {
-        throw new UnsupportedOperationException("Does not implemented yet");
+        return level;
 
     }
 

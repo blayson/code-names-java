@@ -35,7 +35,10 @@ public class ClueLog {
         wordList.remove(word);
     }
 
-
+    /**
+     * pokud hrac vybral spravne slovo, snizi se mu pocet agentu, kterych musi jeste odhadnout o 1
+     * @param word
+     */
 
     public void decreaseNumber(String word) {
 

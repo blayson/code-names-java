@@ -7,11 +7,11 @@ import java.util.Collections;
 import java.util.Random;
 
 public class KeyMap {
-    ArrayList<Agent> agentList;
-    //  private Agent[] agents;
+    private ArrayList<Agent> agentList; // Chuprina
+
     public static final int MAX_FRIENDLY = 9;
     public static final int MAX_ENEMY = 3;
-    public static final int MAX_BYSTANDER = 13; // change
+    public static final int MAX_BYSTANDER = 13;
 
 
     public KeyMap() {
