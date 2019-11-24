@@ -1,5 +1,8 @@
 package cz.mendelu.pjj;
 
+/**
+ * @author But
+ */
 public class ZeroNumbersOfCluesException extends IllegalArgumentException {
     @Override
     public String toString() {

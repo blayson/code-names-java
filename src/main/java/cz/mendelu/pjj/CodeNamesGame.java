@@ -49,10 +49,10 @@ public class CodeNamesGame implements Game {
      * Tato metoda zjisti pokud v ClueLogu jsou jeste slova, kteri je mozne odhadnout
      *
      * @param whose typ hrace aby vedet jaky log musime vzit
-     * @return pocet slov , kterych je nutne jeste odhadnout, return 0 jestli vsechni slovesa uz byli odhadnuty
+     * @return pocet slov, kterych je nutne jeste odhadnout, return 0 jestli vsechni slovesa uz byli odhadnuty
      * @author But
      */
-    public int checkClueLog(Turn whose) {
+    public int checkAllClueCounters(Turn whose) {
         ClueLog log = clueLogs.get(whose);
         if (log.isDone()) {
             return 0;
@@ -68,9 +68,8 @@ public class CodeNamesGame implements Game {
         return count;
     }
 
-    public int checkClueLog() {
-        ClueLog log = clueLogs.get(currentTurn);
-        return 0;
+    public int checkAllClueCounters() {
+        return checkAllClueCounters(currentTurn);
     }
 
     public ClueLog getClueLog(Turn whose) {

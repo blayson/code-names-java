@@ -15,10 +15,10 @@ public class ClueLog {
 
     public void addWord(String word, int number) {
         if (wordList.containsKey(word)) {
-            throw new AddAnExistingWordException();
+            throw new AddAnExistingWordException(); // @author Chuprina
         }
         if (number <= 0 || number >= 9) {
-            throw new ZeroNumbersOfCluesException();
+            throw new ZeroNumbersOfCluesException(); // @author But
         }
         isDone = false;
         wordList.put(word, number);
@@ -37,6 +37,21 @@ public class ClueLog {
         if (wordList.get(word) != 0) {
             wordList.put(word, wordList.get(word) - 1);
         }
+    }
+
+    /**
+     * @author But
+     * @return words Map without guessed words
+     */
+    public Map getWordsToGuess() {
+        Map<String, Integer> words = new HashMap<String, Integer>();
+        for (Map.Entry<String, Integer> clue : wordList.entrySet()) {
+            Integer wordClueCount = clue.getValue();
+            if (wordClueCount > 0) {
+                words.put(clue.getKey(), clue.getValue());
+            }
+        }
+        return words;
     }
 
     public void setWordCounter(String word, int num) {

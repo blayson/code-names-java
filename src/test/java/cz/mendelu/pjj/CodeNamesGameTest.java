@@ -9,40 +9,79 @@ class CodeNamesGameTest {
     //private static CodeNamesGame game;
 
     /**
-     * Test checkClue() method when all cards wasn't guessed
+     * Test <code>checkAllClueCountersTries()<code/> method when all cards wasn't guessed
      *
      * @author But
      */
     @Test
-    void checkClueLogDoesNotHasTries() {
+    void checkAllClueCountersHasTries() {
         // given
         CodeNamesGame game;
         game = new CodeNamesGame(Level.HARD, new Player("Andrew"),  Turn.PLAYER);
-        newClueLog[0] = new ClueLog("apple", 1);
-        newClueLog[1] = new ClueLog("pencil", 2);
-        game.setLog(newClueLog);
-
-        int result = game.checkClueLog();
+        ClueLog log = game.getClueLog(Turn.PLAYER);
+        log.addWord("Fruit", 2);
+        log.addWord("Electronics", 1);
+        int result = game.checkAllClueCounters(Turn.PLAYER);
 
         assertEquals(3, result);
     }
 
     /**
-     * Test <code>checkClue()<code/> method when all cards was guessed
+     * Test <code>checkAllClueCountersTries()<code/> method when all cards was guessed
      *
      * @author But
      */
     @Test
-    void checkClueLogHasTries() {
+    void checkAllClueCountersHasNotTries() {
         // given
         CodeNamesGame game;
         game = new CodeNamesGame(Level.HARD, new Player("Andrew"),  Turn.PLAYER);
-        ClueLog[] newClueLog = new ClueLog[1];
-        newClueLog[0] = new ClueLog("apple", 1);
-        newClueLog[0].setNumbersLeft(0);
-        game.setLog(newClueLog);
+        ClueLog log = game.getClueLog(Turn.PLAYER);
+        log.addWord("Fruit", 2);
+        log.addWord("Electronics", 1);
+        log.decreaseWordCounter("Fruit");
+        log.decreaseWordCounter("Fruit");
+        log.decreaseWordCounter("Electronics");
+        int result = game.checkAllClueCounters(Turn.PLAYER);
 
-        int result = game.checkClueLog();
+        assertEquals(0, result);
+    }
+
+    /**
+     * Test <code>checkAllClueCountersTries()<code/> method when some cards was guessed
+     *
+     * @author But
+     */
+    @Test
+    void checkAllClueCountersTries() {
+        // given
+        CodeNamesGame game;
+        game = new CodeNamesGame(Level.HARD, new Player("Andrew"),  Turn.PLAYER);
+        ClueLog log = game.getClueLog(Turn.PLAYER);
+        log.addWord("Fruit", 2);
+        log.addWord("Electronics", 1);
+        log.decreaseWordCounter("Fruit");
+        log.decreaseWordCounter("Fruit");
+        int result = game.checkAllClueCounters(Turn.PLAYER);
+
+        assertEquals(1, result);
+    }
+
+    /**
+     * Test <code>checkAllClueCountersTries()<code/> method for opponent
+     *
+     * @author But
+     */
+    @Test
+    void checkAllClueCountersTriesForOpponent() {
+        // given
+        CodeNamesGame game;
+        game = new CodeNamesGame(Level.HARD, new Player("Andrew"),  Turn.PLAYER);
+        ClueLog log = game.getClueLog(Turn.PLAYER);
+        log.addWord("Fruit", 2);
+        log.addWord("Electronics", 1);
+        log.decreaseWordCounter("Fruit");
+        int result = game.checkAllClueCounters(Turn.OPPONENT);
 
         assertEquals(0, result);
     }
