@@ -2,17 +2,23 @@ package cz.mendelu.pjj;
 
 import cz.mendelu.pjj.interfaces.Game;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
 public class CodeNamesGame implements Game {
     private Level level;
     private Player player;
-    private ClueLog[] log;
+    private Set<ClueLog> clueLogs = new HashSet();
+    private final int countLog=2;
     public Turn currentTurn;
     private int timePoolLeft;
 
-    public CodeNamesGame(Level level, Player player, ClueLog[] log, Turn currentTurn) {
+    public CodeNamesGame(Level level, Player player,  Turn currentTurn) {
         this.level = level;
         this.player = player;
-        this.log = log;
+      //  this.log = log;
         this.currentTurn = currentTurn;
         switch (level) {
             case EASY: {
@@ -47,12 +53,22 @@ public class CodeNamesGame implements Game {
      *
      * @author But
      */
+    public void addLogs() { // prida
+        while (countLog >= clueLogs.size()) {
+            clueLogs.add(new ClueLog());
+        }
+    }
     public int checkClueLog() {
+
         throw new UnsupportedOperationException("Does not implemented yet");
     }
 
-    public void setLog(ClueLog[] log) {
-        this.log = log;
+    public void setLog( Set<ClueLog> log) {
+        this.clueLogs = log;
+    }
+    public Collection<ClueLog> getClueLog(){
+        return Collections.unmodifiableSet(clueLogs); // ochrani mnozinu proti modifikaci, nikdo krome me nemuze sem zapisovat
+        // zajistime , ze k mnozine se prida jenom pomoci metody addLogs, nesmi se prida pomoci primeho pridavani do mmoziny .add
     }
 
     /**
@@ -72,6 +88,7 @@ public class CodeNamesGame implements Game {
     }
 
     public void setTimePool(int timePool) {
+
         this.timePoolLeft = timePool;
     }
 }

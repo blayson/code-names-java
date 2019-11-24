@@ -70,4 +70,11 @@ public class Player implements PlayerInterface {
     public int hashCode() {
         return Objects.hash(name, keyMap);
     }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }

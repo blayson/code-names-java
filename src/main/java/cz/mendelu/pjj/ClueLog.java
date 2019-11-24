@@ -1,12 +1,15 @@
 package cz.mendelu.pjj;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class ClueLog {
-    private String word;
-    private int number;
+
+
     private Boolean isDone;
     private int numbersLeft;
+    Map< String, Integer> wordList = new HashMap < String, Integer>(); // key - word, value - int
 
     public int getNumbersLeft() {
         return numbersLeft;
@@ -16,20 +19,37 @@ public class ClueLog {
         this.numbersLeft = numbersLeft;
     }
 
-    public ClueLog(String word, int number) {
-        this.word = word;
-        this.number = number;
+    public ClueLog() {
+
+       wordList = null;
         isDone = false;
-        this.numbersLeft = number;
+
+    }
+    public void addWord(String word, int number) {
+         if (wordList.containsKey(word)){
+             throw new AddAnExistingWordException();
+         }
+        wordList.put(word,number);
+    }
+    public void removeWord(String word) {
+        wordList.remove(word);
     }
 
-    public void setWord(String word) {
-        this.word = word;
+
+
+    public void decreaseNumber(String word) {
+
+        wordList.put(word, wordList.get(word) - 1);
+
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public int getNumber(String word) {
+        if (wordList.containsKey(word)){
+            return wordList.get(word);
+        }
+        return 0; // vyjimka - ?
     }
+
 
     public void setDone(Boolean done) {
         isDone = done;
@@ -39,28 +59,18 @@ public class ClueLog {
         return isDone;
     }
 
-    public String getWord() {
-        return word;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof ClueLog)) return false;
         ClueLog clueLog = (ClueLog) o;
-        return number == clueLog.number &&
-                numbersLeft == clueLog.numbersLeft &&
-                word.equals(clueLog.word) &&
-                isDone.equals(clueLog.isDone);
+        return numbersLeft == clueLog.numbersLeft &&
+                Objects.equals(isDone, clueLog.isDone) &&
+                Objects.equals(wordList, clueLog.wordList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(word, number, isDone, numbersLeft);
+        return Objects.hash(isDone, numbersLeft, wordList);
     }
 }
