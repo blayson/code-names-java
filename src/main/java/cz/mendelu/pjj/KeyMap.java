@@ -4,6 +4,7 @@ import cz.mendelu.pjj.interfaces.Agent;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Objects;
 import java.util.Random;
 
 public class KeyMap {
@@ -52,7 +53,7 @@ public class KeyMap {
         shuffleAgents();
         for (int i = 0; i < agentList.size(); i++) {
             Agent newAgent = getAgent(i);
-            System.out.println(newAgent.getInformation() + " Agent");
+            System.out.println(newAgent.toString() + " Agent");
         }
     }
 
@@ -98,6 +99,19 @@ public class KeyMap {
 
     public void setAgentList(ArrayList<Agent> agentList) {
         this.agentList = agentList;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        KeyMap keyMap = (KeyMap) o;
+        return agentList.equals(keyMap.agentList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(agentList);
     }
 }
 

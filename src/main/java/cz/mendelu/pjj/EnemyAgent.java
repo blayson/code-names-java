@@ -4,11 +4,16 @@ import cz.mendelu.pjj.interfaces.Agent;
 import cz.mendelu.pjj.interfaces.Game;
 import cz.mendelu.pjj.interfaces.PlayerInterface;
 
-public class EnemyAgent implements Agent {
-    int count;
+import java.util.Objects;
 
+public class EnemyAgent implements Agent {
     public EnemyAgent() {
 
+    }
+
+    @Override
+    public String toString() {
+        return "EnemyAgent{}";
     }
 
     /**
@@ -17,13 +22,8 @@ public class EnemyAgent implements Agent {
      * @author But
      */
     @Override
-    public void action(PlayerInterface player, Game game) {
-        throw new UnsupportedOperationException("Does not implemented yet");
-
+    public void action(PlayerInterface player, Game game, String word) {
+        player.endGame(game);
     }
 
-    @Override
-    public String getInformation() {
-        return count + " Enemy bystander";
-    }
 }

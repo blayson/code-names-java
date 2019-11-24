@@ -1,18 +1,19 @@
 package cz.mendelu.pjj;
 
 import cz.mendelu.pjj.interfaces.Game;
+import cz.mendelu.pjj.interfaces.PlayerInterface;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class CodeNamesGame implements Game {
     private Level level;
-    private Player player;
+    private PlayerInterface player;
     private Map<Turn, ClueLog> clueLogs = new HashMap<>();
     public Turn currentTurn;
     private int timePoolLeft;
 
-    public CodeNamesGame(Level level, Player player, Turn currentTurn) {
+    public CodeNamesGame(Level level, PlayerInterface player, Turn currentTurn) {
         this.level = level;
         this.player = player;
         this.currentTurn = currentTurn;
@@ -73,8 +74,11 @@ public class CodeNamesGame implements Game {
     }
 
     public ClueLog getClueLog(Turn whose) {
-        return clueLogs.get(whose); // ochrani mnozinu proti modifikaci, nikdo krome me nemuze sem zapisovat
-        // zajistime , ze k mnozine se prida jenom pomoci metody addLogs, nesmi se prida pomoci primeho pridavani do mmoziny .add
+        return clueLogs.get(whose);
+    }
+
+    public ClueLog getClueLog() {
+        return clueLogs.get(currentTurn);
     }
 
     /**
@@ -83,6 +87,7 @@ public class CodeNamesGame implements Game {
      *
      * @author Chuprina
      */
+    @Override
     public void nextTurn() {
         currentTurn = currentTurn.toNext();
         timePoolLeft--;
@@ -96,7 +101,7 @@ public class CodeNamesGame implements Game {
         this.timePoolLeft = timePool;
     }
 
-    public Player getPlayer() {
+    public PlayerInterface getPlayer() {
         return player;
     }
 

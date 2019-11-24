@@ -4,14 +4,15 @@ import java.util.Objects;
 
 public class Word {
     private String value;
-    private boolean check;
+    private boolean isChecked;
 
     public Word(String value) {
+        isChecked = false;
         this.value = value;
     }
 
     public Boolean isChecked() {
-        return null;
+        return isChecked;
     }
 
     public String getValue() {
@@ -27,12 +28,12 @@ public class Word {
         if (this == o) return true;
         if (!(o instanceof Word)) return false;
         Word word = (Word) o;
-        return check == word.check &&
+        return isChecked == word.isChecked &&
                 value.equals(word.value);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(value, check);
+        return Objects.hash(value, isChecked);
     }
 }

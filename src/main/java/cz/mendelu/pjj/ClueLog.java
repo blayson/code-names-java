@@ -7,10 +7,13 @@ import java.util.Objects;
 public class ClueLog {
     private Boolean isDone;
     private Map<String, Integer> wordList = new HashMap<String, Integer>(); // key - word, value - int word counter
+    private String currentWord;
+    private int unguessedCounter;
 
 
     public ClueLog() {
         isDone = false;
+        unguessedCounter = 0;
     }
 
     public void addWord(String word, int number) {
@@ -22,6 +25,8 @@ public class ClueLog {
         }
         isDone = false;
         wordList.put(word, number);
+        currentWord = word;
+        unguessedCounter = unguessedCounter + number;
     }
 
     public void removeWord(String word) {
@@ -36,12 +41,17 @@ public class ClueLog {
     public void decreaseWordCounter(String word) {
         if (wordList.get(word) != 0) {
             wordList.put(word, wordList.get(word) - 1);
+            unguessedCounter--;
         }
     }
 
+    public void decreaseWordCounter() {
+        unguessedCounter--;
+    }
+
     /**
-     * @author But
      * @return words Map without guessed words
+     * @author But
      */
     public Map getWordsToGuess() {
         Map<String, Integer> words = new HashMap<String, Integer>();
@@ -77,6 +87,14 @@ public class ClueLog {
         return wordList;
     }
 
+    public int getUnguessedCounter() {
+        return unguessedCounter;
+    }
+
+    public void setUnguessedCounter(int unguessedCounter) {
+        this.unguessedCounter = unguessedCounter;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -89,5 +107,23 @@ public class ClueLog {
     @Override
     public int hashCode() {
         return Objects.hash(isDone, wordList);
+    }
+
+    public String getCurrentWord() {
+        return currentWord;
+    }
+
+    public void setCurrentWord(String currentWord) {
+        this.currentWord = currentWord;
+    }
+
+    @Override
+    public String toString() {
+        return "ClueLog{" +
+                "isDone=" + isDone +
+                ", wordList=" + wordList +
+                ", currentWord='" + currentWord + '\'' +
+                ", unguessedCounter=" + unguessedCounter +
+                '}';
     }
 }

@@ -1,6 +1,7 @@
 package cz.mendelu.pjj;
 
 import cz.mendelu.pjj.interfaces.Agent;
+import cz.mendelu.pjj.interfaces.Game;
 import cz.mendelu.pjj.interfaces.PlayerInterface;
 
 import java.util.Objects;
@@ -8,6 +9,14 @@ import java.util.Objects;
 public class Player implements PlayerInterface {
 
     private String name;
+
+    public KeyMap getKeyMap() {
+        return keyMap;
+    }
+
+    public void setKeyMap(KeyMap keyMap) {
+        this.keyMap = keyMap;
+    }
 
     private KeyMap keyMap;
 
@@ -31,17 +40,28 @@ public class Player implements PlayerInterface {
      * @return <code>true</code> pokud na dane position nikdo neni nebo je tam InnocentAgent
      * nebo return <code>false</code> pokud tam nekdo uz je
      */
-    public boolean checkWord(byte position) {
+    public boolean checkWord(int position) {
         throw new UnsupportedOperationException("Does not implemented yet");
     }
 
-    public void endTurn(CodeNamesGame game) {
-        throw new UnsupportedOperationException("Does not implemented yet");
-    }
-
-    public void endGame(CodeNamesGame game) {
+    @Override
+    public void endGame(Game game) {
         System.out.println("YOU LOSE!");
         game.endGame();
+    }
+
+    public void endTurn(Game game) {
+        game.nextTurn();
+    }
+
+    @Override
+    public void continueTurn() {
+
+    }
+
+    @Override
+    public void chooseAnotherWord() {
+
     }
 
     /**

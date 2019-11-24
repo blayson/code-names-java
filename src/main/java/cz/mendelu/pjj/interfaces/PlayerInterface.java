@@ -1,9 +1,18 @@
 package cz.mendelu.pjj.interfaces;
 
-import cz.mendelu.pjj.CodeNamesGame;
+
+import cz.mendelu.pjj.KeyMap;
 
 public interface PlayerInterface {
-    public boolean checkWord(byte position);
+    public boolean checkWord(int position);
 
-    public void endGame(CodeNamesGame game);
+    public void endGame(Game game);
+
+    public KeyMap getKeyMap();
+
+    public void endTurn(Game game);
+
+    void continueTurn();
+
+    void chooseAnotherWord();
 }
