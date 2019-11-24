@@ -25,7 +25,7 @@ class EnemyAgentTest {
     }
 
     /**
-     * @autor But
+     * @author But
      */
     @Test
     void action() {

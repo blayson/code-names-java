@@ -45,7 +45,7 @@ public class CodeNamesGame implements Game {
      *
      * @return pocet slov , kterych je nutne jeste odhadnout
      *
-     * @autor But
+     * @author But
      */
     public int checkClueLog() {
         throw new UnsupportedOperationException("Does not implemented yet");
@@ -60,7 +60,7 @@ public class CodeNamesGame implements Game {
      * a meni  tah
      *
      *
-     * @autor Chuprina
+     * @author Chuprina
      */
     public void nextTurn() {
         currentTurn = currentTurn.toNext();

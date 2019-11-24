@@ -11,7 +11,7 @@ class CodeNamesGameTest {
     /**
      * Test checkClue() method when all cards wasn't guessed
      *
-     * @autor But
+     * @author But
      */
     @Test
     void checkClueLogDoesNotHasTries() {
@@ -31,7 +31,7 @@ class CodeNamesGameTest {
     /**
      * Test <code>checkClue()<code/> method when all cards was guessed
      *
-     * @autor But
+     * @author But
      */
     @Test
     void checkClueLogHasTries() {
@@ -51,7 +51,7 @@ class CodeNamesGameTest {
     /**
      * Test if <code>nextTurn()<code/> switch game turn
      *
-     * @autor Chuprina
+     * @author Chuprina
      */
     @Test
     void nextTurn() {
@@ -67,7 +67,7 @@ class CodeNamesGameTest {
     /**
      * Test that <code>nextTurn()<code/> subtract 1 time coin from timePoolLeft
      *
-     * @autor Chuprina
+     * @author Chuprina
      */
     @Test
     void nextTurnChangeTimePool() {

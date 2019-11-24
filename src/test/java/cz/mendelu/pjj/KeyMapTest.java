@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class KeyMapTest {
     /**
-     * @autor Chuprina
+     * @author Chuprina
      */
     @Test
     void generate25Agents() {
