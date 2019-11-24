@@ -6,13 +6,13 @@ import cz.mendelu.pjj.interfaces.PlayerInterface;
 
 public class EnemyAgent implements Agent {
     int count;
+
     public EnemyAgent() {
 
     }
 
     /**
      * V EnemyAgent tato metoda implementuje ukonceni hry
-     *
      *
      * @author But
      */

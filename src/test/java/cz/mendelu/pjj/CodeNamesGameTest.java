@@ -13,13 +13,11 @@ class CodeNamesGameTest {
      *
      * @author But
      */
-    /*
     @Test
     void checkClueLogDoesNotHasTries() {
         // given
         CodeNamesGame game;
         game = new CodeNamesGame(Level.HARD, new Player("Andrew"),  Turn.PLAYER);
-        ClueLog[] newClueLog = new ClueLog[2];
         newClueLog[0] = new ClueLog("apple", 1);
         newClueLog[1] = new ClueLog("pencil", 2);
         game.setLog(newClueLog);
@@ -34,7 +32,7 @@ class CodeNamesGameTest {
      *
      * @author But
      */
-  /*  @Test
+    @Test
     void checkClueLogHasTries() {
         // given
         CodeNamesGame game;
@@ -54,9 +52,6 @@ class CodeNamesGameTest {
      *
      * @author Chuprina
      */
-
-
-
     @Test
     void nextTurn() {
         // given

@@ -1,7 +1,6 @@
 package cz.mendelu.pjj;
 
 
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -13,22 +12,20 @@ public class Board {
         return wordList.get(position);
     }
 
-
     public ArrayList<Word> getWordList() {
         return wordList;
     }
 
-
     public void createWordList() {
         wordList = generateWords();
-        shuffleAgents();
-
+        shuffleWords();
     }
-    public void shuffleAgents() {
+
+    public void shuffleWords() {
         Collections.shuffle(wordList, new Random());
     }
 
-    public ArrayList<Word> generateWords(){
+    public ArrayList<Word> generateWords() {
         wordList.add(0, new Word("apple"));
         wordList.add(1, new Word("melon"));
         wordList.add(2, new Word("word"));

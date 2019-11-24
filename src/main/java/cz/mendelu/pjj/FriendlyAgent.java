@@ -5,7 +5,8 @@ import cz.mendelu.pjj.interfaces.Game;
 import cz.mendelu.pjj.interfaces.PlayerInterface;
 
 public class FriendlyAgent implements Agent {
-int count;
+    int count;
+
     public FriendlyAgent() {
 
     }
