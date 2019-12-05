@@ -4,6 +4,7 @@ import cz.mendelu.pjj.interfaces.Agent;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,7 +16,7 @@ class KeyMapTest {
     void generate25Agents() {
         //given
         KeyMap keyMap = new KeyMap();
-        ArrayList<Agent> agents;
+        List<Agent> agents;
         // when
         keyMap.generateAgents();
         agents = keyMap.getAgentList();
@@ -31,7 +32,7 @@ class KeyMapTest {
     void generate9FriendlyAgents() {
         //given
         KeyMap keyMap = new KeyMap();
-        ArrayList<Agent> agents;
+        List<Agent> agents;
 
         // when
         keyMap.generateAgents();
@@ -50,7 +51,7 @@ class KeyMapTest {
     void generate3EnemyAgents() {
         //given
         KeyMap keyMap = new KeyMap();
-        ArrayList<Agent> agents;
+       List<Agent> agents;
         // when
         keyMap.generateAgents();
         agents = keyMap.getAgentList();
@@ -68,7 +69,7 @@ class KeyMapTest {
     void generate13InnocentAgents() {
         //given
         KeyMap keyMap = new KeyMap();
-        ArrayList<Agent> agents;
+        List<Agent> agents;
         // when
         keyMap.generateAgents();
         agents = keyMap.getAgentList();

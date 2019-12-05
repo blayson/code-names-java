@@ -5,10 +5,15 @@ import cz.mendelu.pjj.interfaces.PlayerInterface;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class CodeNamesGame implements Game {
     private Level level;
     private PlayerInterface player;
+    /**
+     * @author But
+     * @version etapa 3
+     */
     private Map<Turn, ClueLog> clueLogs = new HashMap<>();
     public Turn currentTurn;
     private int timePoolLeft;
@@ -52,6 +57,7 @@ public class CodeNamesGame implements Game {
      * @param whose typ hrace aby vedet jaky log musime vzit
      * @return pocet slov, kterych je nutne jeste odhadnout, return 0 jestli vsechni slovesa uz byli odhadnuty
      * @author But
+     *  @version etapa 3
      */
     public int checkAllClueCounters(Turn whose) {
         ClueLog log = clueLogs.get(whose);
@@ -86,6 +92,7 @@ public class CodeNamesGame implements Game {
      * a meni  tah
      *
      * @author Chuprina
+     *  @version etapa 3
      */
     @Override
     public void nextTurn() {
@@ -107,5 +114,42 @@ public class CodeNamesGame implements Game {
 
     public void setPlayer(Player player) {
         this.player = player;
+    }
+    /**
+     * @author But
+     * @version etapa 3
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CodeNamesGame)) return false;
+        CodeNamesGame that = (CodeNamesGame) o;
+        return timePoolLeft == that.timePoolLeft &&
+                level == that.level &&
+                player.equals(that.player) &&
+                Objects.equals(clueLogs, that.clueLogs) &&
+                currentTurn == that.currentTurn;
+    }
+    /**
+     * @author But
+     * @version etapa 3
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(level, player, clueLogs, currentTurn, timePoolLeft);
+    }
+    /**
+     * @author But
+     * @version etapa 3
+     */
+    @Override
+    public String toString() {
+        return "CodeNamesGame{" +
+                "level=" + level +
+                ", player=" + player +
+                ", clueLogs=" + clueLogs +
+                ", currentTurn=" + currentTurn +
+                ", timePoolLeft=" + timePoolLeft +
+                '}';
     }
 }

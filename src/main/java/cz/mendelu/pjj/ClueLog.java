@@ -6,6 +6,10 @@ import java.util.Objects;
 
 public class ClueLog {
     private Boolean isDone;
+    /**
+     * @author Chuprina
+     * @version etapa 3
+     */
     private Map<String, Integer> wordList = new HashMap<String, Integer>(); // key - word, value - int word counter
     private String currentWord;
     private int unguessedCounter;
@@ -94,7 +98,10 @@ public class ClueLog {
     public void setUnguessedCounter(int unguessedCounter) {
         this.unguessedCounter = unguessedCounter;
     }
-
+    /**
+     * @author Chuprina
+     * @version etapa 3
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -103,7 +110,10 @@ public class ClueLog {
         return isDone.equals(clueLog.isDone) &&
                 wordList.equals(clueLog.wordList);
     }
-
+    /**
+     * @author Chuprina
+     * @version etapa 3
+     */
     @Override
     public int hashCode() {
         return Objects.hash(isDone, wordList);
@@ -116,7 +126,10 @@ public class ClueLog {
     public void setCurrentWord(String currentWord) {
         this.currentWord = currentWord;
     }
-
+    /**
+     * @author Chuprina
+     * @version etapa 3
+     */
     @Override
     public String toString() {
         return "ClueLog{" +

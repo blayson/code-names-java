@@ -20,6 +20,7 @@ public class EnemyAgent implements Agent {
      * V EnemyAgent tato metoda implementuje ukonceni hry
      *
      * @author But
+     *  @version etapa 3
      */
     @Override
     public void action(PlayerInterface player, Game game, String word) {

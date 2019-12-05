@@ -2,13 +2,14 @@ package cz.mendelu.pjj;
 
 import cz.mendelu.pjj.interfaces.Agent;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Objects;
-import java.util.Random;
+import java.util.*;
 
 public class KeyMap {
-    private ArrayList<Agent> agentList; // Chuprina
+    /**
+     * @author Chuprina
+     * @version etapa 3
+     */
+    private List<Agent> agentList = new ArrayList<>();
 
     public static final int MAX_FRIENDLY = 9;
     public static final int MAX_ENEMY = 3;
@@ -23,7 +24,6 @@ public class KeyMap {
 
     /**
      * Ze vsech agentu vybete toho , ktery se nachazi na zadane pozice
-     *
      * @param position - poradi agentu
      * @return vrati agenta, ktery se nachazi na zadane pozice
      */
@@ -32,11 +32,12 @@ public class KeyMap {
     }
 
     /**
+     *
      * Get all agents that stored in KeyMap object
      *
      * @return array of agents
      */
-    public ArrayList<Agent> getAgentList() {
+    public List<Agent> getAgentList() {
         return agentList;
     }
 
@@ -45,7 +46,9 @@ public class KeyMap {
      * z nich 9 friendlyAgent, 3 enemy a 13 bystander
      *
      * @author Chuprina
+     * @version etapa 3
      */
+
     public void generateAgents() {
         agentList = generateFriendlyAgents();
         agentList.addAll(generateEnemyAgents());
@@ -66,8 +69,8 @@ public class KeyMap {
         Collections.shuffle(agentList, new Random());
     }
 
-    public ArrayList<Agent> generateFriendlyAgents() {
-        ArrayList<Agent> friendlyAgentList = new ArrayList<>();
+    public List<Agent> generateFriendlyAgents() {
+        List<Agent> friendlyAgentList = new ArrayList<>();
         for (int i = 0; i < 9; i++) {
             Agent newAgent = new FriendlyAgent();
             friendlyAgentList.add(i, newAgent);
@@ -75,8 +78,8 @@ public class KeyMap {
         return friendlyAgentList;
     }
 
-    public ArrayList<Agent> generateEnemyAgents() {
-        ArrayList<Agent> enemyAgentList = new ArrayList<Agent>();
+    public List<Agent> generateEnemyAgents() {
+      List<Agent> enemyAgentList = new ArrayList<Agent>();
         for (int i = 0; i < 3; i++) {
             Agent newAgent = new EnemyAgent();
             enemyAgentList.add(i, newAgent);
@@ -84,8 +87,8 @@ public class KeyMap {
         return enemyAgentList;
     }
 
-    public ArrayList<Agent> generateInnocentAgents() {
-        ArrayList<Agent> innocentAgentList = new ArrayList<>();
+    public List<Agent> generateInnocentAgents() {
+        List<Agent> innocentAgentList = new ArrayList<>();
         for (int i = 0; i < 13; i++) {
             Agent newAgent = new InnocentAgent();
             innocentAgentList.add(i, newAgent);
@@ -97,22 +100,12 @@ public class KeyMap {
         agentList.add(position, agent);
     }
 
-    public void setAgentList(ArrayList<Agent> agentList) {
+
+
+    public void setAgentList(List<Agent> agentList) {
         this.agentList = agentList;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        KeyMap keyMap = (KeyMap) o;
-        return agentList.equals(keyMap.agentList);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(agentList);
-    }
 }
 
 

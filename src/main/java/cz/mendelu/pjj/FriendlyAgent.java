@@ -22,6 +22,7 @@ public class FriendlyAgent implements Agent {
      * kdyz ne, ukonci tah
      *
      * @author But
+     *  @version etapa 3
      */
     @Override
     public void action(PlayerInterface player, Game game, String word) {

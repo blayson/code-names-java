@@ -76,7 +76,10 @@ public class Player implements PlayerInterface {
             Agent agent = this.keyMap.getAgent(position);
         }
     }
-
+    /**
+     * @author But
+     * @version etapa 3
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -85,11 +88,19 @@ public class Player implements PlayerInterface {
         return name.equals(player.name) &&
                 keyMap.equals(player.keyMap);
     }
-
+    /**
+     * @author But
+     * @version etapa 3
+     */
     @Override
     public int hashCode() {
+
         return Objects.hash(name, keyMap);
     }
+    /**
+     * @author But
+     * @version etapa 3
+     */
 
     @Override
     public String toString() {
