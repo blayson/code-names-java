@@ -9,6 +9,9 @@ import java.util.Objects;
 public class Player implements PlayerInterface {
 
     private String name;
+    private KeyMap keyMap;
+    private Integer wins;
+    private Integer looses;
 
     public KeyMap getKeyMap() {
         return keyMap;
@@ -18,7 +21,6 @@ public class Player implements PlayerInterface {
         this.keyMap = keyMap;
     }
 
-    private KeyMap keyMap;
 
     public Player(String name) {
         this.name = name;
@@ -76,6 +78,7 @@ public class Player implements PlayerInterface {
             Agent agent = this.keyMap.getAgent(position);
         }
     }
+
     /**
      * @author But
      * @version etapa 3
@@ -83,29 +86,34 @@ public class Player implements PlayerInterface {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Player)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Player player = (Player) o;
         return name.equals(player.name) &&
-                keyMap.equals(player.keyMap);
+                keyMap.equals(player.keyMap) &&
+                wins.equals(player.wins) &&
+                looses.equals(player.looses);
     }
+
     /**
      * @author But
      * @version etapa 3
      */
     @Override
     public int hashCode() {
-
-        return Objects.hash(name, keyMap);
+        return Objects.hash(name, keyMap, wins, looses);
     }
+
     /**
      * @author But
      * @version etapa 3
      */
-
     @Override
     public String toString() {
         return "Player{" +
                 "name='" + name + '\'' +
+                ", keyMap=" + keyMap +
+                ", wins=" + wins +
+                ", looses=" + looses +
                 '}';
     }
 }

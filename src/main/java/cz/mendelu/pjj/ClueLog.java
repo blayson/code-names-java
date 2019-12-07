@@ -98,6 +98,7 @@ public class ClueLog {
     public void setUnguessedCounter(int unguessedCounter) {
         this.unguessedCounter = unguessedCounter;
     }
+
     /**
      * @author Chuprina
      * @version etapa 3
@@ -107,16 +108,19 @@ public class ClueLog {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ClueLog clueLog = (ClueLog) o;
-        return isDone.equals(clueLog.isDone) &&
-                wordList.equals(clueLog.wordList);
+        return unguessedCounter == clueLog.unguessedCounter &&
+                isDone.equals(clueLog.isDone) &&
+                wordList.equals(clueLog.wordList) &&
+                currentWord.equals(clueLog.currentWord);
     }
+
     /**
      * @author Chuprina
      * @version etapa 3
      */
     @Override
     public int hashCode() {
-        return Objects.hash(isDone, wordList);
+        return Objects.hash(isDone, wordList, currentWord, unguessedCounter);
     }
 
     public String getCurrentWord() {
@@ -126,6 +130,7 @@ public class ClueLog {
     public void setCurrentWord(String currentWord) {
         this.currentWord = currentWord;
     }
+
     /**
      * @author Chuprina
      * @version etapa 3

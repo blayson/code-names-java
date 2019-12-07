@@ -11,7 +11,7 @@ public class Board {
      * @author But
      * @version etapa 3
      */
-    private List<Word> wordList; // But
+    private List<Word> wordList = new ArrayList<>(); // But
 
     Board() {
         wordList = new ArrayList<>(25);

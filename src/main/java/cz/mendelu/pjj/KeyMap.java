@@ -11,11 +11,6 @@ public class KeyMap {
      */
     private List<Agent> agentList = new ArrayList<>();
 
-    public static final int MAX_FRIENDLY = 9;
-    public static final int MAX_ENEMY = 3;
-    public static final int MAX_BYSTANDER = 13;
-
-
     public KeyMap() {
         // memory allocation for an agent array
         agentList = new ArrayList<>(25);
