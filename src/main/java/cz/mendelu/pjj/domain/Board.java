@@ -1,5 +1,7 @@
-package cz.mendelu.pjj;
+package cz.mendelu.pjj.domain;
 
+
+import org.json.simple.JSONArray;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,7 +15,7 @@ public class Board {
      */
     private List<Word> wordList = new ArrayList<>(); // But
 
-    Board() {
+    public Board() {
         wordList = new ArrayList<>(25);
     }
 
@@ -25,8 +27,8 @@ public class Board {
         return wordList;
     }
 
-    public void createWordList() {
-        generateWords();
+    public void createWordList(JSONArray array) {
+        generateWords(array);
         shuffleWords();
     }
 
@@ -35,9 +37,9 @@ public class Board {
     }
 
 
-    public void generateWords() {
-        for (int i = 0; i < 25; i++) {
-            wordList.add(0, new Word("apple" + i));
+    public void generateWords(JSONArray array) {
+        for (Object word : array) {
+            wordList.add(new Word(word.toString()));
         }
     }
 

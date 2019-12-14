@@ -1,6 +1,8 @@
 package cz.mendelu.pjj;
 
 
+import cz.mendelu.pjj.domain.Board;
+import cz.mendelu.pjj.domain.Word;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -13,7 +15,7 @@ public class BoardTest { // nado sdelat interface Word?
     @Test
     void generate25Words() {
         // given
-        Board  board = new Board();
+        Board board = new Board();
         ArrayList<Word> words;
         // when
         board.createWordList();

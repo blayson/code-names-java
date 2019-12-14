@@ -1,4 +1,4 @@
-package cz.mendelu.pjj;
+package cz.mendelu.pjj.domain;
 
 import java.util.HashMap;
 import java.util.Map;

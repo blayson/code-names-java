@@ -1,8 +1,8 @@
-package cz.mendelu.pjj.interfaces;
+package cz.mendelu.pjj.domain.interfaces;
 
 
-import cz.mendelu.pjj.ClueLog;
-import cz.mendelu.pjj.Turn;
+import cz.mendelu.pjj.domain.ClueLog;
+import cz.mendelu.pjj.domain.Turn;
 
 public interface Game {
     public void endGame();

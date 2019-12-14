@@ -1,4 +1,4 @@
-package cz.mendelu.pjj.interfaces;
+package cz.mendelu.pjj.domain.interfaces;
 
 
 public interface Agent {

@@ -1,10 +1,8 @@
-package cz.mendelu.pjj;
+package cz.mendelu.pjj.domain;
 
-import cz.mendelu.pjj.interfaces.Agent;
-import cz.mendelu.pjj.interfaces.Game;
-import cz.mendelu.pjj.interfaces.PlayerInterface;
-
-import java.util.Objects;
+import cz.mendelu.pjj.domain.interfaces.Agent;
+import cz.mendelu.pjj.domain.interfaces.Game;
+import cz.mendelu.pjj.domain.interfaces.PlayerInterface;
 
 public class FriendlyAgent implements Agent {
     public FriendlyAgent() {

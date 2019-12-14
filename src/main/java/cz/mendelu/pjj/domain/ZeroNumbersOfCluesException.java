@@ -1,4 +1,4 @@
-package cz.mendelu.pjj;
+package cz.mendelu.pjj.domain;
 
 /**
  * @author But

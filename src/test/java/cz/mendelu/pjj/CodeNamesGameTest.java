@@ -1,6 +1,6 @@
 package cz.mendelu.pjj;
 
-import org.junit.jupiter.api.BeforeAll;
+import cz.mendelu.pjj.domain.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

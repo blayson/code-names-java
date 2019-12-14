@@ -1,13 +1,14 @@
-package cz.mendelu.pjj;
+package cz.mendelu.pjj.domain;
 
-import cz.mendelu.pjj.interfaces.Game;
-import cz.mendelu.pjj.interfaces.PlayerInterface;
+import cz.mendelu.pjj.domain.interfaces.Game;
+import cz.mendelu.pjj.domain.interfaces.PlayerInterface;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class CodeNamesGame implements Game {
+public class CodeNamesGame implements Game, Serializable {
     private Level level;
     private PlayerInterface player;
     /**
@@ -17,6 +18,7 @@ public class CodeNamesGame implements Game {
     private Map<Turn, ClueLog> clueLogs = new HashMap<>();
     public Turn currentTurn;
     private int timePoolLeft;
+    private Board board;
 
     public CodeNamesGame(Level level, PlayerInterface player, Turn currentTurn) {
         this.level = level;
@@ -92,7 +94,7 @@ public class CodeNamesGame implements Game {
      * a meni  tah
      *
      * @author Chuprina
-     *  @version etapa 3
+     * @version etapa 3
      */
     @Override
     public void nextTurn() {

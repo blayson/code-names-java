@@ -17,4 +17,20 @@ test{
 
 dependencies {
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.5.2'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    // https://mvnrepository.com/artifact/org.json/json
+    compile group: 'org.json', name: 'json', version: '20190722'
+    compile 'com.googlecode.json-simple:json-simple:1.1.1'
+}
+
+//create a single Jar with all dependencies
+task dist(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File Example',
+                'Implementation-Version': version,
+                'Main-Class': 'PohsadkaRunner'
+    }
+    baseName = project.name + '-dist'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
 }

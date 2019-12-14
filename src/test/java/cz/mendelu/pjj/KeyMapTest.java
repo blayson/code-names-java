@@ -1,9 +1,12 @@
 package cz.mendelu.pjj;
 
-import cz.mendelu.pjj.interfaces.Agent;
+import cz.mendelu.pjj.domain.EnemyAgent;
+import cz.mendelu.pjj.domain.FriendlyAgent;
+import cz.mendelu.pjj.domain.InnocentAgent;
+import cz.mendelu.pjj.domain.KeyMap;
+import cz.mendelu.pjj.domain.interfaces.Agent;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,6 +1,7 @@
 package cz.mendelu.pjj;
 
-import cz.mendelu.pjj.interfaces.PlayerInterface;
+import cz.mendelu.pjj.domain.*;
+import cz.mendelu.pjj.domain.interfaces.PlayerInterface;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
