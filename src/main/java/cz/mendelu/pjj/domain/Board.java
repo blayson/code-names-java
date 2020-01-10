@@ -3,20 +3,21 @@ package cz.mendelu.pjj.domain;
 
 import org.json.simple.JSONArray;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public class Board {
+public class Board implements Serializable {
     /**
      * @author But
      * @version etapa 3
      */
-    private List<Word> wordList = new ArrayList<>(); // But
+    private List<Word> wordList = new ArrayList<>(25); // But
 
     public Board() {
-        wordList = new ArrayList<>(25);
+//        wordList = new ArrayList<>(25);
     }
 
     public Word getWord(int position) {

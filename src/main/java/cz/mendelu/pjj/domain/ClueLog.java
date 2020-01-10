@@ -1,16 +1,17 @@
 package cz.mendelu.pjj.domain;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class ClueLog {
+public class ClueLog implements Serializable {
     private Boolean isDone;
     /**
      * @author Chuprina
      * @version etapa 3
      */
-    private Map<String, Integer> wordList = new HashMap<String, Integer>(); // key - word, value - int word counter
+    private Map<String, Integer> wordList = new HashMap<>(); // key - word, value - int word counter
     private String currentWord;
     private int unguessedCounter;
 
@@ -57,8 +58,8 @@ public class ClueLog {
      * @return words Map without guessed words
      * @author But
      */
-    public Map getWordsToGuess() {
-        Map<String, Integer> words = new HashMap<String, Integer>();
+    public HashMap<String, Integer> getWordsToGuess() {
+        HashMap<String, Integer> words = new HashMap<>();
         for (Map.Entry<String, Integer> clue : wordList.entrySet()) {
             Integer wordClueCount = clue.getValue();
             if (wordClueCount > 0) {

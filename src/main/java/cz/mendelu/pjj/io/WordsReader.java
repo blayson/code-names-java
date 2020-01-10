@@ -12,10 +12,10 @@ public class WordsReader {
     private WordsReader() {}
 
     /**
-     *
      * @author Chuprina
      * @param file json file with words
      * @return new board
+     * @version etapa 4
      */
     public static Board read(String file) {
         Board board = new Board();

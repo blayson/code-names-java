@@ -3,9 +3,11 @@ package cz.mendelu.pjj;
 
 import cz.mendelu.pjj.domain.Board;
 import cz.mendelu.pjj.domain.Word;
+import cz.mendelu.pjj.io.WordsReader;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -15,10 +17,9 @@ public class BoardTest { // nado sdelat interface Word?
     @Test
     void generate25Words() {
         // given
-        Board board = new Board();
-        ArrayList<Word> words;
+        Board board = WordsReader.read("words.json");
+        List<Word> words;
         // when
-        board.createWordList();
         words = board.getWordList();
         // then
         assertEquals(25, words.size());

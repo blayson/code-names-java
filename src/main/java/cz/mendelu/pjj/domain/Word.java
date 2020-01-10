@@ -1,8 +1,9 @@
 package cz.mendelu.pjj.domain;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Word {
+public class Word implements Serializable {
     private String value;
     private boolean isChecked;
     private Integer position;

@@ -4,7 +4,9 @@ import cz.mendelu.pjj.domain.interfaces.Agent;
 import cz.mendelu.pjj.domain.interfaces.Game;
 import cz.mendelu.pjj.domain.interfaces.PlayerInterface;
 
-public class InnocentAgent implements Agent {
+import java.io.Serializable;
+
+public class InnocentAgent implements Agent, Serializable {
     public InnocentAgent() {
 
     }

@@ -2,18 +2,19 @@ package cz.mendelu.pjj.domain;
 
 import cz.mendelu.pjj.domain.interfaces.Agent;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class KeyMap {
+public class KeyMap implements Serializable {
     /**
      * @author Chuprina
      * @version etapa 3
      */
-    private List<Agent> agentList = new ArrayList<>();
+    private List<Agent> agentList = new ArrayList<>(25);
 
     public KeyMap() {
         // memory allocation for an agent array
-        agentList = new ArrayList<>(25);
+//        agentList = new ArrayList<>(25);
 
     }
 
@@ -74,7 +75,7 @@ public class KeyMap {
     }
 
     public List<Agent> generateEnemyAgents() {
-      List<Agent> enemyAgentList = new ArrayList<Agent>();
+      List<Agent> enemyAgentList = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             Agent newAgent = new EnemyAgent();
             enemyAgentList.add(i, newAgent);

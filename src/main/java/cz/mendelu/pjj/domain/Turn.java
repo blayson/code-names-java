@@ -1,6 +1,8 @@
 package cz.mendelu.pjj.domain;
 
-public enum Turn {
+import java.io.Serializable;
+
+public enum Turn implements Serializable {
     PLAYER,
     OPPONENT;
 

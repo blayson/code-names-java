@@ -4,9 +4,10 @@ import cz.mendelu.pjj.domain.interfaces.Agent;
 import cz.mendelu.pjj.domain.interfaces.Game;
 import cz.mendelu.pjj.domain.interfaces.PlayerInterface;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Player implements PlayerInterface {
+public class Player implements PlayerInterface, Serializable {
 
     private String name;
     private KeyMap keyMap;

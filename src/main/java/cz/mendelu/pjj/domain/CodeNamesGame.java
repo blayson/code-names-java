@@ -11,6 +11,7 @@ import java.util.Objects;
 public class CodeNamesGame implements Game, Serializable {
     private Level level;
     private PlayerInterface player;
+    private PlayerInterface opponent;
     /**
      * @author But
      * @version etapa 3
@@ -19,6 +20,7 @@ public class CodeNamesGame implements Game, Serializable {
     public Turn currentTurn;
     private int timePoolLeft;
     private Board board;
+    public final String version = "0.0.1a";
 
     public CodeNamesGame(Level level, PlayerInterface player, Turn currentTurn) {
         this.level = level;
@@ -59,7 +61,7 @@ public class CodeNamesGame implements Game, Serializable {
      * @param whose typ hrace aby vedet jaky log musime vzit
      * @return pocet slov, kterych je nutne jeste odhadnout, return 0 jestli vsechni slovesa uz byli odhadnuty
      * @author But
-     *  @version etapa 3
+     * @version etapa 3
      */
     public int checkAllClueCounters(Turn whose) {
         ClueLog log = clueLogs.get(whose);
@@ -67,7 +69,7 @@ public class CodeNamesGame implements Game, Serializable {
             return 0;
         }
 
-        Integer count = 0;
+        int count = 0;
         for (Map.Entry<String, Integer> clue : log.getWordList().entrySet()) {
             Integer wordClueCount = clue.getValue();
             if (wordClueCount >= 0) {

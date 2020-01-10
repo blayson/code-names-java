@@ -4,7 +4,9 @@ import cz.mendelu.pjj.domain.interfaces.Agent;
 import cz.mendelu.pjj.domain.interfaces.Game;
 import cz.mendelu.pjj.domain.interfaces.PlayerInterface;
 
-public class EnemyAgent implements Agent {
+import java.io.Serializable;
+
+public class EnemyAgent implements Agent, Serializable {
     public EnemyAgent() {
 
     }
@@ -18,7 +20,7 @@ public class EnemyAgent implements Agent {
      * V EnemyAgent tato metoda implementuje ukonceni hry
      *
      * @author But
-     *  @version etapa 3
+     * @version etapa 3
      */
     @Override
     public void action(PlayerInterface player, Game game, String word) {
