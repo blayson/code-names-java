@@ -22,9 +22,10 @@ public class CodeNamesGame implements Game, Serializable {
     private Board board;
     public final String version = "0.0.1a";
 
-    public CodeNamesGame(Level level, PlayerInterface player, Turn currentTurn) {
+    public CodeNamesGame(Level level, PlayerInterface player, PlayerInterface opponent, Turn currentTurn) {
         this.level = level;
         this.player = player;
+        this.opponent = opponent;
         this.currentTurn = currentTurn;
         clueLogs.put(Turn.PLAYER, new ClueLog());
         clueLogs.put(Turn.OPPONENT, new ClueLog());
@@ -116,9 +117,14 @@ public class CodeNamesGame implements Game, Serializable {
         return player;
     }
 
+    public PlayerInterface getOpponent() {
+        return opponent;
+    }
+
     public void setPlayer(Player player) {
         this.player = player;
     }
+
     /**
      * @author But
      * @version etapa 3
@@ -134,6 +140,7 @@ public class CodeNamesGame implements Game, Serializable {
                 Objects.equals(clueLogs, that.clueLogs) &&
                 currentTurn == that.currentTurn;
     }
+
     /**
      * @author But
      * @version etapa 3
@@ -142,6 +149,7 @@ public class CodeNamesGame implements Game, Serializable {
     public int hashCode() {
         return Objects.hash(level, player, clueLogs, currentTurn, timePoolLeft);
     }
+
     /**
      * @author But
      * @version etapa 3
@@ -151,9 +159,11 @@ public class CodeNamesGame implements Game, Serializable {
         return "CodeNamesGame{" +
                 "level=" + level +
                 ", player=" + player +
+                ", opponent=" + opponent +
                 ", clueLogs=" + clueLogs +
                 ", currentTurn=" + currentTurn +
                 ", timePoolLeft=" + timePoolLeft +
+                ", version='" + version + '\'' +
                 '}';
     }
 }
