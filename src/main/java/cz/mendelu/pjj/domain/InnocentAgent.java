@@ -21,6 +21,7 @@ public class InnocentAgent implements Agent, Serializable {
      */
     @Override
     public Agent action(PlayerInterface player, Game game, String word) {
+        player.endTurn(game);
         return this;
     }
 

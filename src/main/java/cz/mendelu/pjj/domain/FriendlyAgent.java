@@ -34,12 +34,14 @@ public class FriendlyAgent implements Agent, Serializable {
            if (currentClueCount > 0) {
                log.decreaseWordCounter(word);
                player.continueTurn();
+               return null;
            } else {
                player.chooseAnotherWord();
+               return null;
            }
        } else {
            player.endTurn(game);
        }
-        return this;
+       return this;
     }
 }

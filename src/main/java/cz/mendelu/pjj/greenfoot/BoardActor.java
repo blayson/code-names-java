@@ -42,6 +42,7 @@ public class BoardActor extends Actor {
     public void startGame() {
         addCards();
         addButtons();
+        addTimePool();
         getWorld().removeObject(this);
     }
 
@@ -73,5 +74,25 @@ public class BoardActor extends Actor {
         Button button = new Button();
         getWorld().addObject(button, x, y*5+50);
         getWorld().showText("Submit a clue", x, y*5+50);
+    }
+
+    public void addTimePool() {
+        int x = getWorld().getWidth()/20;
+        int y = getWorld().getHeight()/5;
+        int hg = y;
+        int num = 0;
+        for (int i = 0; i < 5; i++) {
+            hg = hg + 50;
+            num++;
+            TimePool timePool = new TimePool(num, x, hg);
+            getWorld().addObject(timePool, x, hg);
+        }
+        hg = y;
+        for (int i = 0; i < 4; i++) {
+            hg = hg + 50;
+            num++;
+            TimePool timePool = new TimePool(num, x+50 ,hg);
+            getWorld().addObject(timePool, x+50, hg);
+        }
     }
 }
