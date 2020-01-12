@@ -17,11 +17,11 @@ public class InnocentAgent implements Agent, Serializable {
     }
     /**
      * V InnocentAgent tato metoda implementuje ukonceni tahu
+     * @return
      */
     @Override
-    public void action(PlayerInterface player, Game game, String word) {
-        throw new UnsupportedOperationException("Does not implemented yet");
-
+    public Agent action(PlayerInterface player, Game game, String word) {
+        return this;
     }
 
 }

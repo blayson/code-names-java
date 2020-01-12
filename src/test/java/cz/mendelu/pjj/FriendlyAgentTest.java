@@ -12,6 +12,7 @@ class FriendlyAgentTest {
     private static CodeNamesGame game;
     private static FriendlyAgent friendlyAgent;
     private static PlayerInterface player;
+    private static Player opponent;
 
     /**
      * Initial setup for testing
@@ -22,7 +23,8 @@ class FriendlyAgentTest {
     static void setUp() {
         // given
         player = new Player("Andrew");
-        game = new CodeNamesGame(Level.HARD, player, Turn.PLAYER);
+        opponent = new Player("Andrew");
+        game = new CodeNamesGame(Level.HARD, player, opponent, Turn.PLAYER);
     }
 
     /**

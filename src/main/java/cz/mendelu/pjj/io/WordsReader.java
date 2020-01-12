@@ -14,20 +14,35 @@ public class WordsReader {
     /**
      * @author Chuprina
      * @param file json file with words
-     * @return new board
+     * @return words list
      * @version etapa 4
      */
-    public static Board read(String file) {
-        Board board = new Board();
+    public static JSONArray read(String file) {
         JSONParser jsonParser = new JSONParser();
 
         try (FileReader reader = new FileReader(file)) {
             Object obj = jsonParser.parse(reader);
-            JSONArray wordsList = (JSONArray) obj;
-            board.createWordList(wordsList);
+            return (JSONArray) obj;
         } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
-        return board;
+        return null;
+    }
+
+    /**
+     * @author Chuprina
+     * @return words list
+     * @version etapa 4
+     */
+    public static JSONArray read() {
+        JSONParser jsonParser = new JSONParser();
+
+        try (FileReader reader = new FileReader("words.json")) {
+            Object obj = jsonParser.parse(reader);
+            return (JSONArray) obj;
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

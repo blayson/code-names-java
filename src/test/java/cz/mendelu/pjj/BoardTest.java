@@ -17,7 +17,8 @@ public class BoardTest { // nado sdelat interface Word?
     @Test
     void generate25Words() {
         // given
-        Board board = WordsReader.read("words.json");
+        Board board = new Board();
+        board.generateWords(WordsReader.read("words.json"));
         List<Word> words;
         // when
         words = board.getWordList();

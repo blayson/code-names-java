@@ -13,9 +13,6 @@ public class KeyMap implements Serializable {
     private List<Agent> agentList = new ArrayList<>(25);
 
     public KeyMap() {
-        // memory allocation for an agent array
-//        agentList = new ArrayList<>(25);
-
     }
 
     /**

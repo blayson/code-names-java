@@ -17,7 +17,7 @@ class CodeNamesGameTest {
     void checkAllClueCountersHasTries() {
         // given
         CodeNamesGame game;
-        game = new CodeNamesGame(Level.HARD, new Player("Andrew"),  Turn.PLAYER);
+        game = new CodeNamesGame(Level.HARD, new Player("Andrew"), new Player("Lena"),  Turn.PLAYER);
         ClueLog log = game.getClueLog(Turn.PLAYER);
         log.addWord("Fruit", 2);
         log.addWord("Electronics", 1);
@@ -35,7 +35,7 @@ class CodeNamesGameTest {
     void checkAllClueCountersHasNotTries() {
         // given
         CodeNamesGame game;
-        game = new CodeNamesGame(Level.HARD, new Player("Andrew"),  Turn.PLAYER);
+        game = new CodeNamesGame(Level.HARD, new Player("Andrew"), new Player("lena"),  Turn.PLAYER);
         ClueLog log = game.getClueLog(Turn.PLAYER);
         log.addWord("Fruit", 2);
         log.addWord("Electronics", 1);
@@ -56,7 +56,7 @@ class CodeNamesGameTest {
     void checkAllClueCountersTries() {
         // given
         CodeNamesGame game;
-        game = new CodeNamesGame(Level.HARD, new Player("Andrew"),  Turn.PLAYER);
+        game = new CodeNamesGame(Level.HARD, new Player("Andrew"), new Player("lena"),  Turn.PLAYER);
         ClueLog log = game.getClueLog(Turn.PLAYER);
         log.addWord("Fruit", 2);
         log.addWord("Electronics", 1);
@@ -76,7 +76,7 @@ class CodeNamesGameTest {
     void checkAllClueCountersTriesForOpponent() {
         // given
         CodeNamesGame game;
-        game = new CodeNamesGame(Level.HARD, new Player("Andrew"),  Turn.PLAYER);
+        game = new CodeNamesGame(Level.HARD, new Player("Andrew"), new Player("lena"),  Turn.PLAYER);
         ClueLog log = game.getClueLog(Turn.PLAYER);
         log.addWord("Fruit", 2);
         log.addWord("Electronics", 1);
@@ -94,7 +94,7 @@ class CodeNamesGameTest {
     @Test
     void nextTurn() {
         // given
-        CodeNamesGame game = new CodeNamesGame(Level.HARD, new Player("Andrew"),  Turn.PLAYER);
+        CodeNamesGame game = new CodeNamesGame(Level.HARD, new Player("Andrew"), new Player("lena"),  Turn.PLAYER);
         // when
         game.nextTurn();
         // then
@@ -110,7 +110,7 @@ class CodeNamesGameTest {
     void nextTurnChangeTimePool() {
         // given
         CodeNamesGame game;
-        game = new CodeNamesGame(Level.HARD, new Player("Andrew"), Turn.PLAYER);
+        game = new CodeNamesGame(Level.HARD, new Player("Andrew"),new Player("lena"), Turn.PLAYER);
         //when
         int initialTimePool = game.getTimePoolLeft();
         game.nextTurn();

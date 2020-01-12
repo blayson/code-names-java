@@ -25,6 +25,8 @@ public class Player implements PlayerInterface, Serializable {
 
     public Player(String name) {
         this.name = name;
+        wins = 0;
+        looses = 0;
     }
 
     public String getName() {

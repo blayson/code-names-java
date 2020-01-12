@@ -16,8 +16,12 @@ public class Board implements Serializable {
      */
     private List<Word> wordList = new ArrayList<>(25); // But
 
-    public Board() {
-//        wordList = new ArrayList<>(25);
+    public Board() {}
+
+    public static Board getDefaultBoard(JSONArray array) {
+        Board board = new Board();
+        board.generateWords(array);
+        return board;
     }
 
     public Word getWord(int position) {

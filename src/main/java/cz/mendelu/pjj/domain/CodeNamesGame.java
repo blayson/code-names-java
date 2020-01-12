@@ -2,9 +2,11 @@ package cz.mendelu.pjj.domain;
 
 import cz.mendelu.pjj.domain.interfaces.Game;
 import cz.mendelu.pjj.domain.interfaces.PlayerInterface;
+import cz.mendelu.pjj.io.WordsReader;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -46,6 +48,25 @@ public class CodeNamesGame implements Game, Serializable {
             default:
                 timePoolLeft = 9;
         }
+    }
+
+    public static CodeNamesGame getDefaultGame() {
+        Player player = new Player("Player 1");
+        KeyMap keyMap1 = new KeyMap();
+        keyMap1.generateAgents();
+        player.setKeyMap(keyMap1);
+
+        Player opponent = new Player("Player 2");
+        KeyMap keyMap2 = new KeyMap();
+        keyMap2.generateAgents();
+        opponent.setKeyMap(keyMap2);
+
+        CodeNamesGame game = new CodeNamesGame(Level.HARD, player, opponent, Turn.PLAYER);
+
+        Board board = Board.getDefaultBoard(WordsReader.read()) ;
+        game.setBoard(board);
+
+        return game;
     }
 
     public Level getCurrentLevel() {
@@ -92,6 +113,11 @@ public class CodeNamesGame implements Game, Serializable {
         return clueLogs.get(currentTurn);
     }
 
+    public void setClue(String word, Integer number) {
+        clueLogs.get(currentTurn).addWord(word, number);
+
+    }
+
     /**
      * Tato metoda snizuje hodnotu promenne <code>timePoolLeft</code>
      * a meni  tah
@@ -123,6 +149,14 @@ public class CodeNamesGame implements Game, Serializable {
 
     public void setPlayer(Player player) {
         this.player = player;
+    }
+
+    public PlayerInterface getCurrentPlayer() {
+        if (currentTurn == Turn.PLAYER) {
+            return player;
+        } else {
+            return opponent;
+        }
     }
 
     /**
@@ -165,5 +199,13 @@ public class CodeNamesGame implements Game, Serializable {
                 ", timePoolLeft=" + timePoolLeft +
                 ", version='" + version + '\'' +
                 '}';
+    }
+
+    public void setBoard(Board board) {
+        this.board = board;
+    }
+
+    public List<Word> getWordCards() {
+        return board.getWordList();
     }
 }

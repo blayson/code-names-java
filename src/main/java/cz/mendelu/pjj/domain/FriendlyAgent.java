@@ -23,9 +23,10 @@ public class FriendlyAgent implements Agent, Serializable {
      *
      * @author But
      *  @version etapa 3
+     * @return this
      */
     @Override
-    public void action(PlayerInterface player, Game game, String word) {
+    public Agent action(PlayerInterface player, Game game, String word) {
        int clueCount = game.checkAllClueCounters();
        ClueLog log = game.getClueLog();
        int currentClueCount = log.getWordCounter(word);
@@ -39,6 +40,6 @@ public class FriendlyAgent implements Agent, Serializable {
        } else {
            player.endTurn(game);
        }
-
+        return this;
     }
 }

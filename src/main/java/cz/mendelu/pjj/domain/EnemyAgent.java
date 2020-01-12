@@ -21,10 +21,12 @@ public class EnemyAgent implements Agent, Serializable {
      *
      * @author But
      * @version etapa 3
+     * @return
      */
     @Override
-    public void action(PlayerInterface player, Game game, String word) {
+    public Agent action(PlayerInterface player, Game game, String word) {
         player.endGame(game);
+        return this;
     }
 
 }

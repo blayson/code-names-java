@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class EnemyAgentTest {
     private static Game game;
     private static TestPlayer testPlayer;
+    private static TestPlayer testOpponent;
 
     /**
      * @author But
@@ -34,7 +35,8 @@ class EnemyAgentTest {
     static void setUp() {
         // given
         testPlayer = new TestPlayer("Andrew");
-        game = new CodeNamesGame(Level.EASY, testPlayer, Turn.PLAYER);
+        testOpponent = new TestPlayer("Lena");
+        game = new CodeNamesGame(Level.EASY, testPlayer, testOpponent, Turn.PLAYER);
     }
 
     /**
