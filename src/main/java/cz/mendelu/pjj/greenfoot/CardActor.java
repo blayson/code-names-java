@@ -8,9 +8,12 @@ import greenfoot.Greenfoot;
 import greenfoot.MouseInfo;
 
 import javax.swing.*;
-import java.sql.Time;
 import java.util.List;
 
+/**
+ * @author But
+ * @version 4
+ */
 public class CardActor extends Actor {
     String value;
     int x;
@@ -78,12 +81,6 @@ public class CardActor extends Actor {
                             }
                         }
                     }
-//                    ClueLog log = Game.game.getClueLog();
-//                    log.decreaseWordCounter(value);
-//                    if (log.getWordCounter(value) <= 0) {
-//                        Game.game.nextTurn();
-//                        getWorld().addObject(new CheckTimeMark(), );
-//                    }
                 }
             }
         }

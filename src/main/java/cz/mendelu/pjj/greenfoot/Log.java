@@ -4,10 +4,13 @@ import cz.mendelu.pjj.domain.ClueLog;
 import greenfoot.Actor;
 import greenfoot.GreenfootImage;
 
-import javax.swing.*;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author Chuprina
+ * @version 4
+ */
 public class Log extends Actor {
 
     private static Log log = null;
@@ -36,8 +39,6 @@ public class Log extends Actor {
             int currentCounter = log.getWordCounter(current);
             HashMap<String, Integer> wordsToGuess = log.getWordsToGuess();
             Map<String, Integer> allWords = log.getWordList();
-//            getWorld().showText(current, 1100, 350);
-//            getWorld().showText(unguessedCounter + " -", 1050, 350);
 
             int height = 400, i = 0;
             for (String word : wordsToGuess.keySet()) {

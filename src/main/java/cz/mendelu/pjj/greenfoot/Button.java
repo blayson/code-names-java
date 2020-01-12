@@ -1,6 +1,5 @@
 package cz.mendelu.pjj.greenfoot;
 
-import cz.mendelu.pjj.domain.ClueLog;
 import greenfoot.Actor;
 import greenfoot.Greenfoot;
 import greenfoot.GreenfootImage;
@@ -9,6 +8,10 @@ import greenfoot.MouseInfo;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * @author Chuprina
+ * @version 4
+ */
 public class Button extends Actor {
 
     Button() {

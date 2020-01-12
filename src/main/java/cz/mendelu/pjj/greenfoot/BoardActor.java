@@ -1,11 +1,15 @@
 package cz.mendelu.pjj.greenfoot;
 
-import cz.mendelu.pjj.domain.CodeNamesGame;
 import cz.mendelu.pjj.domain.Word;
 import greenfoot.Actor;
 import greenfoot.Greenfoot;
 import greenfoot.MouseInfo;
 
+
+/**
+ * @author But
+ * @version 4
+ */
 public class BoardActor extends Actor {
 
     BoardActor() {

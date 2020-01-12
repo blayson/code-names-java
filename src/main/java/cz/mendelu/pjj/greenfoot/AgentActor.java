@@ -5,12 +5,13 @@ import cz.mendelu.pjj.domain.FriendlyAgent;
 import cz.mendelu.pjj.domain.InnocentAgent;
 import cz.mendelu.pjj.domain.interfaces.Agent;
 import greenfoot.Actor;
-import greenfoot.Greenfoot;
-import greenfoot.MouseInfo;
 
+/**
+ * @author But
+ * @version 4
+ */
 public class AgentActor extends Actor {
     private static String IMAGE_SUFIX = ".png";
-//    private static String IMAGE_SELECTED_SUFIX = "-red.png";
     private static String ENEMY = "agent_enemy";
     private static String FRIENDLY = "agent_green_5";
     private static String BYSTANDER = "agent_bystander";
@@ -49,21 +50,4 @@ public class AgentActor extends Actor {
         }
         getImage().scale(50, 50);
     }
-
-//    @Override
-//    public void act() {
-//        MouseInfo mouseInfo = Greenfoot.getMouseInfo();
-//        if (mouseInfo != null) {
-//            Actor actor = mouseInfo.getActor();
-//            AgentActor agentActor = (AgentActor)actor;
-//                if (isLeftClickOnThisActor(mouseInfo, agentActor)) {
-//                    this.setSelected();
-//                    //} else if (isLeftClickOnField(mouseInfo, rpgActor) && selectedHrdinaActor == this) {
-//                    //    this.moveToLocation(mouseInfo.getX(), mouseInfo.getY());
-//                } else if (isRightClickOnThisActor(mouseInfo, agentActor) && selectedHrdinaActor != this) {
-//                    this.executeFightWith(selectedHrdinaActor);
-//                }
-//            }
-//        }
-//    }
 }

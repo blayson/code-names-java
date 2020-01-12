@@ -1,10 +1,12 @@
 package cz.mendelu.pjj.greenfoot;
 
 import greenfoot.Actor;
-import greenfoot.GreenfootImage;
 
-import java.awt.*;
 
+/**
+ * @author Chuprina
+ * @version 4
+ */
 public class TimePool extends Actor {
     public int num;
     public int x;
@@ -17,8 +19,6 @@ public class TimePool extends Actor {
         this.num = num;
         setImage("time.png");
         getImage().scale(50,50);
-//        getImage().setColor(Color.BLUE);
-//        getImage().setTransparency(255);
     }
 
 
