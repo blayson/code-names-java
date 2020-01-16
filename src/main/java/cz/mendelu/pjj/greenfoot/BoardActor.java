@@ -56,7 +56,7 @@ public class BoardActor extends Actor {
         int heightOffset = getWorld().getHeight()/4;
 
         int i = 0;
-        for (Word word : Game.game.getWordCards()) {
+        for (Word word : GameWorld.game.getWordCards()) {
             i = i+1;
             System.out.println(i);
             CardActor card = new CardActor(word.getValue(), x, y, i);
@@ -75,8 +75,8 @@ public class BoardActor extends Actor {
     public void addButtons() {
         int x = getWorld().getWidth()/2;
         int y = getWorld().getHeight()/6;
-        Button button = new Button();
-        getWorld().addObject(button, x, y*5+50);
+        ClueButtonActor clueButtonActor = new ClueButtonActor();
+        getWorld().addObject(clueButtonActor, x, y*5+50);
         getWorld().showText("Submit a clue", x, y*5+50);
     }
 

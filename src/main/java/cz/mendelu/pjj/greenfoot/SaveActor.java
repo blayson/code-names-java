@@ -25,7 +25,7 @@ public class SaveActor extends Actor {
             int buttonNumber = mouseInfo.getButton();
             if(buttonNumber == 1) {
                 try {
-                    GameSaver.save(Game.game);
+                    GameSaver.save(GameWorld.game);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

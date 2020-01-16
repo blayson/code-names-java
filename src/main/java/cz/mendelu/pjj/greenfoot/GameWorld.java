@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @author But
  * @version 4
  */
-public class Game extends World implements Serializable {
+public class GameWorld extends World implements Serializable {
 
     public static final CodeNamesGame game = CodeNamesGame.getDefaultGame();
 
@@ -17,7 +17,7 @@ public class Game extends World implements Serializable {
      * Create a new world with 25x12 cells and
      * with a cell size of 70x70 pixels
      */
-    public Game() {
+    public GameWorld() {
         super(1600, 900, 1);
         setBackground("background.png");
         addObject(new BoardActor(), getWidth()/2, getHeight()/2);

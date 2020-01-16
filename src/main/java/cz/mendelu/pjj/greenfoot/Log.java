@@ -32,7 +32,7 @@ public class Log extends Actor {
     @Override
     public void act() {
 
-        ClueLog log = Game.game.getClueLog();
+        ClueLog log = GameWorld.game.getClueLog();
         if(!log.isDone()) {
             String current = log.getCurrentWord();
             int unguessedCounter = log.getUnguessedCounter();

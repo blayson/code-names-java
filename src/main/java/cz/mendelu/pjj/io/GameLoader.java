@@ -11,14 +11,23 @@ public class GameLoader {
      * @author But
      * @version etapa 4
      */
-    public static CodeNamesGame load(String file) throws IOException, ClassNotFoundException {
+    public static CodeNamesGame load() throws IOException, ClassNotFoundException {
+        return load(null);
+    }
 
-        FileInputStream fileInputStream = new FileInputStream("save.ser");
+    /**
+     * @author But
+     * @version etapa 4
+     */
+    public static CodeNamesGame load(String file) throws IOException, ClassNotFoundException {
+        if(file == null) {
+            file = "save.ser";
+        }
+
+        FileInputStream fileInputStream = new FileInputStream(file);
         ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
 
         CodeNamesGame savedGame = (CodeNamesGame) objectInputStream.readObject();
-
-        System.out.println(savedGame);
 
         objectInputStream.close();
         return savedGame;

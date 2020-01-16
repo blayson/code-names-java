@@ -12,9 +12,9 @@ import java.awt.*;
  * @author Chuprina
  * @version 4
  */
-public class Button extends Actor {
+public class ClueButtonActor extends Actor {
 
-    Button() {
+    ClueButtonActor() {
         setImage(new GreenfootImage(150, 70));
         f = new JFrame();
     }
@@ -24,9 +24,9 @@ public class Button extends Actor {
         MouseInfo mouseInfo = Greenfoot.getMouseInfo();
         if (mouseInfo != null) {
             Actor actor = mouseInfo.getActor();
-            if (actor instanceof Button || actor == null) {
-                Button button = (Button) actor;
-                if (isLeftClickOnThisActor(mouseInfo, button)) {
+            if (actor instanceof ClueButtonActor || actor == null) {
+                ClueButtonActor clueButtonActor = (ClueButtonActor) actor;
+                if (isLeftClickOnThisActor(mouseInfo, clueButtonActor)) {
                     try {
                         String inputClue = this.showInputBox("Submit a clue for you opponent");
                         String inputCount = this.showInputBox("Submit a count of words for clue (less then 25)");
@@ -34,13 +34,12 @@ public class Button extends Actor {
                         if(count <= 0 || count >= 9) {
                             throw new NumberFormatException();
                         }
-                        Game.game.setClue(inputClue.trim(), count);
+                        GameWorld.game.setClue(inputClue.trim(), count);
                         if(!Log.isLogExist()) {
                             getWorld().addObject(Log.getLog(), getWorld().getWidth()/2, getWorld().getHeight()/2);
-                        } else {
-                            getWorld().repaint();
                         }
-                        Game.game.nextTurn();
+                        GameWorld.game.nextTurn();
+                        getWorld().repaint();
                     } catch (NumberFormatException | NullPointerException e) {
                         JOptionPane.showMessageDialog(f,"Incorrect input.");
                     }
@@ -49,7 +48,7 @@ public class Button extends Actor {
         }
     }
 
-    private boolean isLeftClickOnThisActor(MouseInfo mouseInfo, Button actor) {
+    private boolean isLeftClickOnThisActor(MouseInfo mouseInfo, ClueButtonActor actor) {
         return actor == this && mouseInfo.getButton() == 1 && mouseInfo.getClickCount() == 0;
     }
 

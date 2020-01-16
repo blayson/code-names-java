@@ -1,6 +1,5 @@
 package cz.mendelu.pjj.io;
 
-import cz.mendelu.pjj.domain.Board;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -18,8 +17,10 @@ public class WordsReader {
      * @version etapa 4
      */
     public static JSONArray read(String file) {
+        if (file == null) {
+            file = "words.json";
+        }
         JSONParser jsonParser = new JSONParser();
-
         try (FileReader reader = new FileReader(file)) {
             Object obj = jsonParser.parse(reader);
             return (JSONArray) obj;
@@ -35,14 +36,6 @@ public class WordsReader {
      * @version etapa 4
      */
     public static JSONArray read() {
-        JSONParser jsonParser = new JSONParser();
-
-        try (FileReader reader = new FileReader("words.json")) {
-            Object obj = jsonParser.parse(reader);
-            return (JSONArray) obj;
-        } catch (IOException | ParseException e) {
-            e.printStackTrace();
-        }
-        return null;
+       return read(null);
     }
 }

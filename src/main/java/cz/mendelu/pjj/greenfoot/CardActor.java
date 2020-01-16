@@ -41,20 +41,20 @@ public class CardActor extends Actor {
             if (actor instanceof CardActor || actor == null) {
                 CardActor cardActor = (CardActor) actor;
                 if (isLeftClickOnThisActor(mouseInfo, cardActor)) {
-                    PlayerInterface pl = Game.game.getCurrentPlayer();
+                    PlayerInterface pl = GameWorld.game.getCurrentPlayer();
                     KeyMap km = pl.getKeyMap();
                     Agent agent = km.getAgent(position);
                     System.out.println(position);
                     if (agent instanceof FriendlyAgent) {
                         getWorld().addObject(new AgentActor((FriendlyAgent) agent), x, y);
-                        agent.action(pl, Game.game, value);
+                        agent.action(pl, GameWorld.game, value);
                         getWorld().repaint();
                     } else if (agent instanceof EnemyAgent) {
                         getWorld().addObject(new AgentActor((EnemyAgent) agent), x, y);
                         JOptionPane.showMessageDialog(f,"You loose, game ended.");
-                        Agent aaaa =agent.action(pl, Game.game, value);
+                        Agent aaaa =agent.action(pl, GameWorld.game, value);
                         if (aaaa != null) {
-                            if (pl != Game.game.getCurrentPlayer()) {
+                            if (pl != GameWorld.game.getCurrentPlayer()) {
                                 List<TimePool> objs = getWorld().getObjects(TimePool.class);
                                 for (TimePool time : objs) {
                                     if (!time.isChecked) {
@@ -68,8 +68,8 @@ public class CardActor extends Actor {
                         }
                     } else if (agent instanceof InnocentAgent) {
                         getWorld().addObject(new AgentActor((InnocentAgent) agent), x, y);
-                        agent.action(pl, Game.game, value);
-                        if (pl != Game.game.getCurrentPlayer()) {
+                        agent.action(pl, GameWorld.game, value);
+                        if (pl != GameWorld.game.getCurrentPlayer()) {
                             List<TimePool> objs = getWorld().getObjects(TimePool.class);
                             for(TimePool time : objs) {
                                 if(!time.isChecked) {
