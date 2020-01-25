@@ -14,17 +14,27 @@ public class Server {
 
     public static void main(String[] args) {
         Server server = new Server();
+        server.listen();
     }
 
-    public Server() {
+    public Server(Integer port) {
+        if (port == null) {
+            port = 25565;
+            System.out.println("Set default port: 25565");
+        }
         try {
-            this.serverSocket = new ServerSocket(25565);
+            this.serverSocket = new ServerSocket(port);
             this.clientReaders = new ArrayList<BufferedReader>();
-            this.listen();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    public Server() {
+        this(25565);
+        System.out.println("Set default port: 25565");
+    }
+
 
     public void listen() {
         // Accept thread

@@ -26,7 +26,7 @@ public class Client {
             while (true) {
                 String temp = "This is " + counter + " message..";
                 System.out.println(temp);
-                out.write(temp + "\r\n");
+                out.write(temp + "\n");
                 out.flush();
                 counter++;
                 try {
@@ -38,5 +38,9 @@ public class Client {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    void listen() {
+
     }
 }

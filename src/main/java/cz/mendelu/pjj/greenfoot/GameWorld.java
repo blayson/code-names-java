@@ -11,7 +11,7 @@ import java.io.Serializable;
  */
 public class GameWorld extends World implements Serializable {
 
-    public static final CodeNamesGame game = CodeNamesGame.getDefaultGame();
+    public static CodeNamesGame game = CodeNamesGame.getDefaultGame();
 
     /**
      * Create a new world with 25x12 cells and
@@ -22,8 +22,15 @@ public class GameWorld extends World implements Serializable {
         setBackground("background.png");
         addObject(new BoardActor(), getWidth()/2, getHeight()/2);
         addObject(new SaveActor(), 60, 50);
+        addObject(new LoadActor(), 170, 50);
     }
 
+
+    public static void setGame(CodeNamesGame g) {
+        if (g != null) {
+            game = g;
+        }
+    }
 
 
 }

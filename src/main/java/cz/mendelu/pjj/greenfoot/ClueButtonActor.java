@@ -14,11 +14,13 @@ import java.awt.*;
  */
 public class ClueButtonActor extends Actor {
 
+    Frame f;
+
     ClueButtonActor() {
         setImage(new GreenfootImage(150, 70));
         f = new JFrame();
     }
-    Frame f;
+
     @Override
     public void act() {
         MouseInfo mouseInfo = Greenfoot.getMouseInfo();
